@@ -1,0 +1,61 @@
+﻿enemyID,name,type,HP,moveSpeed,prefabName
+smallDemon01,소형 악마,소형,10,2,enemy
+slime01,슬라임,소형,10,2,enemy
+orc01,오크,중형,15,2,enemy
+gargoyle01,가고일,대형,15,2,enemy
+orangeSlime01,주황 슬라임,소형,20,2,enemy
+orcWarrior01,오크 전사,중형,20,2,enemy
+dragon01,드래곤,대형,25,2,enemy
+clayGolem01,진흙 골렘,중형,25,2,enemy
+skeletonWarrior01,해골 전사,소형,30,2,enemy
+gargoyleWarrior01,가고일 전사,대형,30,2,enemy
+hound01,하운드,중형,35,2,enemy
+yellowSlime01,노란색 슬라임,소형,35,2,enemy
+eliteSkeletonWarrior01,정예 해골 전사,소형,40,2,enemy
+stoneGolem01,돌 골렘,중형,40,2,enemy
+lightningDragon01,번개 드래곤,대형,45,2,enemy
+orcGeneral01,오크 장군,중형,45,2,enemy
+elephantOfTheUnderworld01,마계의 코끼리,대형,50,2,enemy
+skeletonNinja01,해골 닌자,소형,50,2,enemy
+greenSlime01,초록색 슬라임,소형,55,2,enemy
+fallenEnt01,타락한 엔트,소형,250,2,enemy
+gargoyleGeneral01,가고일 장군,대형,55,2,enemy
+houndRider01,하운드 라이더,중형,60,2,enemy
+flameDragon01,화염 드래곤,대형,65,2,enemy
+mediumDemon01,중형 악마,중형,65,2,enemy
+blueSlime01,파란색 슬라임,소형,70,2,enemy
+elephantRidingDemon01,코끼리를 탄 악마,대형,70,2,enemy
+gargoyleKing01,가고일 왕,대형,75,2,enemy
+skeletonGeneral01,해골 장군,소형,75,2,enemy
+ironGolem01,철 골렘,중형,80,2,enemy
+orcWizard01,오크 마법사,중형,80,2,enemy
+poisonDragon01,독 드래곤,대형,85,2,enemy
+blueSlime02,남색 슬라임,소형,85,2,enemy
+airship01,비행선,대형,90,2,enemy
+goldGolem01,금 골렘,중형,90,2,enemy
+goblin01,고블린,소형,95,2,enemy
+skeletonWizard01,해골 마법사,소형,95,2,enemy
+cerberus01,케르베로스,중형,100,2,enemy
+armedHound01,무장한 하운드,중형,100,2,enemy
+armedElephant01,무장한 코끼리,대형,105,2,enemy
+iceWizard,얼음술사,중형,300,2,enemy
+purpleSlime01,보라색 슬라임,소형,110,2,enemy
+goblinWarrior01,고블린 전사,소형,115,2,enemy
+orcWarlock01,오크 흑마법사,중형,120,2,enemy
+darkDragon01,암흑 드래곤,대형,125,2,enemy
+cerberusRider01,케르베로스 라이더,중형,130,2,enemy
+emeraldGolem01,에메랄드 골렘,중형,135,2,enemy
+giant01,거인,대형,140,2,enemy
+dragonRider01,드래곤 라이더,대형,145,2,enemy
+darkSlime01,암흑 슬라임,소형,150,2,enemy
+diamondGolem01,다이아몬드 골렘,중형,155,2,enemy
+largeDemon01,대형 악마,대형,160,2,enemy
+witch01,마녀,중형,165,2,enemy
+darkGolem01,암흑 골렘,대형,170,2,enemy
+armedGiant01,무장한 거인,대형,175,2,enemy
+goblinGeneral01,고블린 장군,소형,180,2,enemy
+ancientDemon01,고대의 악마1,소형,185,2,enemy
+ancientDemon02,고대의 악마2,중형,190,2,enemy
+ancientDemon03,고대의 악마3,대형,195,2,enemy
+ancientDemon04,고대의 악마4,대형,200,2,enemy
+demonKing01,마왕,대형,500,2,enemy

@@ -5,8 +5,8 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     public GameObject tilePrefab;
-    public int width = 8;
-    public int height = 8;
+    public int width = 9;
+    public int height = 9;
 
     void Start()
     {
