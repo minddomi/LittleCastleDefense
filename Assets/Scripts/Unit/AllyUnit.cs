@@ -12,11 +12,13 @@ public class AllyUnit : MonoBehaviour
     }
 
     public UnitType unitType;
-    public float damage = 10f;
-    public float attackSpeed = 1f; // 초당 공격 횟수
-    public float attackRadius = 5f; // 공격 반경
+    public float attackRange = 5f;
+    public float attackInterval = 1.5f;
+    public GameObject projectilePrefab;
+    public Transform firePoint;
 
-    private float attackCooldown = 0f; // 공격 쿨다운
+    private float attackTimer = 0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,31 +29,42 @@ public class AllyUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        attackCooldown -= Time.deltaTime;
+        attackTimer += Time.deltaTime;
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRadius);
-        foreach (var hitCollider in hitColliders)
+        if (attackTimer >= attackInterval)
         {
-            if (hitCollider.CompareTag("Enemy"))
+            GameObject target = FindClosestEnemyInRange();
+            if (target != null)
             {
-                if (attackCooldown <= 0f)
-                {
-                    Attack(hitCollider.gameObject);
-                    attackCooldown = 1f / attackSpeed;
-                }
-                break; // 가장 가까운 적 하나만 공격
+                Shoot(target.transform);
+                attackTimer = 0f;
             }
         }
     }
 
-    void Attack(GameObject enemy)
+    GameObject FindClosestEnemyInRange()
     {
-        // 적 유닛에게 데미지를 주는 로직
-        EnemyUnit enemyUnit = enemy.GetComponent<EnemyUnit>();
-        if (enemyUnit != null)
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject closest = null;
+        float minDist = Mathf.Infinity;
+
+        foreach (GameObject enemy in enemies)
         {
-            enemyUnit.TakeDamage(damage);
-            Debug.Log($"{unitType} attacked {enemy.name} for {damage} damage.");
+            float dist = Vector3.Distance(transform.position, enemy.transform.position);
+            if (dist < attackRange && dist < minDist)
+            {
+                minDist = dist;
+                closest = enemy;
+            }
         }
+
+        return closest;
+    }
+
+    void Shoot(Transform target)
+    {
+        GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        Projectile projectile = proj.GetComponent<Projectile>();
+        projectile.SetTarget(target);
     }
 }
