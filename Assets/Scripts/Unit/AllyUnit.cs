@@ -67,4 +67,5 @@ public class AllyUnit : MonoBehaviour
         Projectile projectile = proj.GetComponent<Projectile>();
         projectile.SetTarget(target);
     }
+
 }

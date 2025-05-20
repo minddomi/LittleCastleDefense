@@ -52,6 +52,9 @@ public class EnemyUnit : MonoBehaviour
     void Die()
     {
         Debug.Log($"{gameObject.name} died.");
+
+        ResourceManager.Instance.AddResource(8); // 자원 +8
+
         Destroy(gameObject);
     }
 }

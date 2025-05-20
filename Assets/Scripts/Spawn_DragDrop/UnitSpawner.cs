@@ -6,6 +6,11 @@ public class UnitSpawner : MonoBehaviour
 {
     public void SpawnUnit(UnitClass unitClass, UnitGrade unitGrade)
     {
+        if (!ResourceManager.Instance.TryUseResource(50))
+        {
+            return;
+        }
+
         Tile[] allTiles = FindObjectsOfType<Tile>(); //Tile은 Tile.cs안의 Tile클래스(위치,유닛점유를 담고있음)
         List<Tile> emptyTiles = new List<Tile>();
 

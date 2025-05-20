@@ -8,7 +8,7 @@ public class RoundTimer : MonoBehaviour
     public TMP_Text timeText;
     public TMP_Text roundText;
 
-    public float roundDuration = 105f; // 한 라운드 시간 (초)
+    public float roundDuration = 105f;
     public int maxRounds = 60;
 
     private float elapsedTime = 0f;
