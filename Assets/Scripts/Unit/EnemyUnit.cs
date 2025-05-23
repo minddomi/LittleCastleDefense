@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EnemySize { Small, Medium, Large }
+
 public class EnemyUnit : MonoBehaviour
 {
+    public EnemySize size = EnemySize.Medium; // 초기 적 유닛 유형 설정
     public float health = 100f; // 체력
     public float speed = 3.5f; // 이동속도
     public Transform[] waypoints;
@@ -30,11 +33,8 @@ public class EnemyUnit : MonoBehaviour
         if (Vector2.Distance(transform.position, target.position) < 0.1f)
         {
             currentWaypointIndex++;
-
             if (currentWaypointIndex >= waypoints.Length)
-            {
-                currentWaypointIndex = 0; // 반복 시작
-            }
+                currentWaypointIndex = 0;
         }
     }
 
@@ -42,11 +42,7 @@ public class EnemyUnit : MonoBehaviour
     {
         health -= damage;
         Debug.Log($"{gameObject.name} took {damage} damage. Remaining health: {health}");
-
-        if (health <= 0f)
-        {
-            Die();
-        }
+        if (health <= 0f) Die();
     }
 
     void Die()
