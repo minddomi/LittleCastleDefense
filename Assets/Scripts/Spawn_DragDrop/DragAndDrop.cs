@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragAndDrop : MonoBehaviour
+public class DragAndDrop : MonoBehaviour, ISelectable
 {
     private Vector3 offset;
     public Tile currentTile;
@@ -25,6 +25,8 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseDown()
     {
+        SelectionManager.Instance.Select(this);
+
         // 클릭 시 유닛을 마우스 중앙으로 바로 이동
         Vector3 mousePos = GetMouseWorldPos();
         mousePos.z = -2f;
@@ -35,6 +37,9 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseDrag()
     {
+
+        SelectionManager.Instance.Select(this);
+
         Vector3 dragPos = GetMouseWorldPos() + offset; 
         dragPos.z = -2f; //z값 -2로 설정해서 유닛끼리 겹치는걸 방지
         transform.position = Vector3.Lerp(transform.position, dragPos, Time.deltaTime * 40f);
@@ -44,6 +49,8 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseUp()
     {
+         SelectionManager.Instance.Select(this);
+
         Tile targetTile = FindClosestTile();
 
         if (targetTile == null) // 드롭했는데 타일이 없을시
@@ -129,4 +136,21 @@ public class DragAndDrop : MonoBehaviour
         mousePos.z = 0f;
         return mousePos;
     }
+
+    public void OnSelected()
+    {
+        Debug.Log("선택됨");
+        var meta = GetComponent<UnitMetadata>();
+        if (meta != null)
+        {
+            InfoUIManager.Instance.Show(meta);
+        }
+    }
+
+    public void OnDeselected()
+    {
+        Debug.Log("선택 해제");
+        InfoUIManager.Instance.Hide();
+    }
+
 }

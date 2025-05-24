@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -2425704071223013390}
   - component: {fileID: 5377087588607660007}
   - component: {fileID: 7493212973974451367}
+  - component: {fileID: 2671698883090619455}
   m_Layer: 0
   m_Name: ArcherUnit
   m_TagString: Untagged
@@ -161,8 +162,25 @@ MonoBehaviour:
   unitType: 0
   attackRange: 5
   attackInterval: 1.5
+  attackPower: 50
   projectilePrefab: {fileID: 5536264141123835531, guid: c2e70c64fbe76ff409779a73fc18ccbf, type: 3}
   firePoint: {fileID: 3975679790584352824}
+--- !u!114 &2671698883090619455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843110344384958407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9a4c5afcae14cb409ea8970fcd86607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitClass: 0
+  unitGrade: 0
+  baseAttack: 50
+  bonusAttack: 0
 --- !u!1 &8693058573456310078
 GameObject:
   m_ObjectHideFlags: 0
