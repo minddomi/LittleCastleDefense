@@ -12,8 +12,9 @@ public class AllyUnit : MonoBehaviour
     }
 
     public UnitType unitType;
-    public float attackRange = 5f;
-    public float attackInterval = 1.5f;
+    public float attackRange = 5f; // 공격 범위
+    public float attackInterval = 1.5f; // 공격 쿨다운
+    public float attackPower = 50f; // 공격력
     public GameObject projectilePrefab;
     public Transform firePoint;
 
@@ -30,7 +31,6 @@ public class AllyUnit : MonoBehaviour
     void Update()
     {
         attackTimer += Time.deltaTime;
-
         if (attackTimer >= attackInterval)
         {
             GameObject target = FindClosestEnemyInRange();
@@ -65,6 +65,6 @@ public class AllyUnit : MonoBehaviour
     {
         GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         Projectile projectile = proj.GetComponent<Projectile>();
-        projectile.SetTarget(target);
+        projectile.SetTarget(target, unitType, attackPower);
     }
 }
