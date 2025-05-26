@@ -15,6 +15,9 @@ public class AllyUnit : MonoBehaviour
     public float attackRange = 5f; // 공격 범위
     public float attackInterval = 1.5f; // 공격 쿨다운
     public float attackPower = 50f; // 공격력
+    public float upgradeLevel = 0.0f; // 업그레이드 레벨
+    public float upgradePower = 0.0f; // 업그레이드 공격력
+
     public GameObject projectilePrefab;
     public Transform firePoint;
 
@@ -65,6 +68,8 @@ public class AllyUnit : MonoBehaviour
     {
         GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         Projectile projectile = proj.GetComponent<Projectile>();
-        projectile.SetTarget(target, unitType, attackPower);
+
+        float totalPower = attackPower + upgradePower; // 총 데미지 계산
+        projectile.SetTarget(target, unitType, totalPower); //
     }
 }
