@@ -12,25 +12,23 @@ public class AllyUnit : MonoBehaviour
     }
 
     public UnitType unitType;
-    public float attackRange = 5f; // °ø°Ý ¹üÀ§
-    public float attackInterval = 1.5f; // °ø°Ý Äð´Ù¿î
-    public float attackPower = 50f; // °ø°Ý·Â
+    public float attackRange = 5f;
+    public float attackInterval = 1.5f;
+    public int baseDamage = 1;
+
+    // ì—…ê·¸ë ˆì´ë“œ ê´€ë ¨
+    public int upgradeLevel = 0;
+    public int upgradeDamage = 0;
+
     public GameObject projectilePrefab;
     public Transform firePoint;
 
     private float attackTimer = 0f;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         attackTimer += Time.deltaTime;
+
         if (attackTimer >= attackInterval)
         {
             GameObject target = FindClosestEnemyInRange();
@@ -63,8 +61,18 @@ public class AllyUnit : MonoBehaviour
 
     void Shoot(Transform target)
     {
+        int finalDamage = baseDamage + upgradeLevel * upgradeDamage;
+
         GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         Projectile projectile = proj.GetComponent<Projectile>();
-        projectile.SetTarget(target, unitType, attackPower);
+
+        projectile.SetTarget(target);
+        projectile.SetDamage(finalDamage);
+    }
+
+    // ë ˆë²¨ ì—… í•¨ìˆ˜
+    public void IncreaseLevel(int amount = 1)
+    {
+        upgradeLevel += amount;
     }
 }
