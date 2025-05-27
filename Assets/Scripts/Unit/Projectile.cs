@@ -3,24 +3,41 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed = 8f;
+    public int damage = 10;
 
     private Transform target;
     private AllyUnit.UnitType ownerType;
-    private float ownerAttackPower;
 
-    public void SetTarget(Transform enemy, AllyUnit.UnitType unitType, float attackPower)
+    public void SetTarget(Transform enemy)
     {
         target = enemy;
-        ownerType = unitType;
-        ownerAttackPower = attackPower;
+    }
+
+    public void Setdamage(int Damage)
+    {
+        damage = Damage;
+    }
+
+    public void SetOwnerType(AllyUnit.UnitType type)
+    {
+        ownerType = type;
     }
 
     void Update()
     {
-        if (target == null) { Destroy(gameObject); return; }
+        if (target == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-        if (dir.magnitude < 0.2f) HitTarget();
+
+        if (dir.magnitude < 0.2f)
+        {
+            HitTarget();
+        }
     }
 
     void HitTarget()
@@ -29,8 +46,8 @@ public class Projectile : MonoBehaviour
         if (enemy != null)
         {
             float multiplier = GetDamageMultiplier(ownerType, enemy.size);
-            float damage = ownerAttackPower * multiplier;
-            enemy.TakeDamage(damage);
+            int finalDamage = Mathf.RoundToInt(damage * multiplier);
+            enemy.TakeDamage(finalDamage);
         }
         Destroy(gameObject);
     }
@@ -53,4 +70,3 @@ public class Projectile : MonoBehaviour
         return 1.0f;
     }
 }
-
