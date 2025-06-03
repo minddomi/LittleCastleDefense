@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1671449466206724212}
   - component: {fileID: 8013590433335322588}
-  - component: {fileID: -5065891200709048359}
-  - component: {fileID: 1819026079593889687}
-  - component: {fileID: -7343883700904711408}
+  - component: {fileID: -2425704071223013390}
+  - component: {fileID: 5377087588607660007}
+  - component: {fileID: 7493212973974451367}
   m_Layer: 0
   m_Name: ArcherUnit
   m_TagString: unit
@@ -33,7 +33,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 382979930454036801}
+  - {fileID: 3975679790584352824}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8013590433335322588
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 26014b586badd584d869f00bdee63794, type: 3}
-  m_Color: {r: 0.3882353, g: 0.3882353, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &-5065891200709048359
+--- !u!61 &-2425704071223013390
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,7 +133,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.87, y: 3.87}
   m_EdgeRadius: 0
---- !u!114 &1819026079593889687
+--- !u!114 &5377087588607660007
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTile: {fileID: 0}
---- !u!114 &-7343883700904711408
+--- !u!114 &7493212973974451367
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,14 +159,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 0
-  attackRange: 5
+  attackRange: 0
   attackInterval: 1.5
   attackPower: 50
   upgradeLevel: 0
   upgradePower: 0
+  attackIntervalFinal: 0
+  archerbuff: 0.8
+  isHero: 1
   projectilePrefab: {fileID: 5536264141123835531, guid: c2e70c64fbe76ff409779a73fc18ccbf, type: 3}
-  firePoint: {fileID: 382979930454036801}
---- !u!1 &7712043443043917198
+  firePoint: {fileID: 3975679790584352824}
+--- !u!1 &8693058573456310078
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,7 +177,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 382979930454036801}
+  - component: {fileID: 3975679790584352824}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -182,13 +185,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &382979930454036801
+--- !u!4 &3975679790584352824
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7712043443043917198}
+  m_GameObject: {fileID: 8693058573456310078}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}

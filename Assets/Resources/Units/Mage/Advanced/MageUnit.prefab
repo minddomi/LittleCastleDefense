@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 1652935958507368306}
   m_Layer: 0
   m_Name: MageUnit
-  m_TagString: Untagged
+  m_TagString: unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,5 +192,11 @@ MonoBehaviour:
   unitType: 1
   attackRange: 5
   attackInterval: 1.5
+  attackPower: 50
+  upgradeLevel: 0
+  upgradePower: 0
+  attackIntervalFinal: 0
+  archerbuff: 0.8
+  isHero: 0
   projectilePrefab: {fileID: 5536264141123835531, guid: c2e70c64fbe76ff409779a73fc18ccbf, type: 3}
   firePoint: {fileID: 5374846930545737115}

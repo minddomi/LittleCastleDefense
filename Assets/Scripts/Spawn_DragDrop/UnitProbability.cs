@@ -22,10 +22,12 @@ public static class UnitProbability
         float rand = Random.Range(0f, 100f);
 
         if (rand < 50f) return UnitGrade.Basic;
+        else if (rand < 77f) return UnitGrade.Hero;
         else if (rand < 83f) return UnitGrade.Intermediate;
         else if (rand < 93f) return UnitGrade.Advanced;
         else if (rand < 98f) return UnitGrade.Epic;
         else if (rand < 99.5f) return UnitGrade.Transcendent;
         else return UnitGrade.Supreme;
+        
     }
 }

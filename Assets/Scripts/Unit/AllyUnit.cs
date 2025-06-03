@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AllyUnit : MonoBehaviour
@@ -17,7 +19,10 @@ public class AllyUnit : MonoBehaviour
     public float attackPower = 50f; // 공격력
     public float upgradeLevel = 0.0f; // 업그레이드 레벨
     public float upgradePower = 0.0f; // 업그레이드 공격력
-
+    public float attackIntervalFinal = 0; // 공격 쿨다운 파이널
+    public float archerbuff = 0.8f; // 아쳐 영웅 벞지
+    public bool isHero = false; // 영웅 여부 판단
+    
     public GameObject projectilePrefab;
     public Transform firePoint;
 
@@ -27,14 +32,16 @@ public class AllyUnit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        updateburf();
+
         attackTimer += Time.deltaTime;
-        if (attackTimer >= attackInterval)
+        if (attackTimer >= attackIntervalFinal)
         {
             GameObject target = FindClosestEnemyInRange();
             if (target != null)
@@ -44,6 +51,8 @@ public class AllyUnit : MonoBehaviour
             }
         }
     }
+
+
 
     GameObject FindClosestEnemyInRange()
     {
@@ -70,6 +79,23 @@ public class AllyUnit : MonoBehaviour
         Projectile projectile = proj.GetComponent<Projectile>();
 
         float totalPower = attackPower + upgradePower; // 총 데미지 계산
-        projectile.SetTarget(target, unitType, totalPower); //
+        projectile.SetTarget(target, unitType, totalPower);     
     }
+
+    // 업데이트 버프
+    void updateburf() {
+        attackIntervalFinal = attackInterval;
+        GameObject[] units = GameObject.FindGameObjectsWithTag("unit");
+        float totalburfmultiplier = 1.0f;
+        foreach (GameObject unit in units) {
+
+            AllyUnit ally = unit.GetComponent<AllyUnit>();
+            if (ally != null && ally.isHero && ally.unitType == UnitType.Archer)
+            {
+                totalburfmultiplier *= ally.archerbuff;
+            }
+        }
+        attackIntervalFinal *= totalburfmultiplier;
+    }
+    
 }

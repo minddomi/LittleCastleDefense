@@ -9,5 +9,6 @@ public enum UnitGrade
     Advanced,      // 고급
     Epic,          // 서사
     Transcendent,  // 초월
-    Supreme        // 최고
+    Supreme,        // 최고
+    Hero
 }
