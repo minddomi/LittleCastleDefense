@@ -36,6 +36,20 @@ public class ResourceManager : MonoBehaviour
         return false;
     }
 
+    public int GetSellValue(UnitGrade grade)
+    {
+        switch (grade)
+        {
+            case UnitGrade.Basic: return 8;
+            case UnitGrade.Intermediate: return 16;
+            case UnitGrade.Advanced: return 32;
+            case UnitGrade.Epic: return 64;
+            case UnitGrade.Transcendent: return 128;
+            case UnitGrade.Supreme: return 256;
+            default: return 0;
+        }
+    }
+
     public void AddResource(int amount)
     {
         currentResource += amount;

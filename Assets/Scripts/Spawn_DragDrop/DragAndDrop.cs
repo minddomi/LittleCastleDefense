@@ -9,6 +9,8 @@ public class DragAndDrop : MonoBehaviour, ISelectable
 
     private static readonly Vector3 TileDepth = new Vector3(0, 0, -1); //모든 y값 -1로 설정
 
+    private bool isAlive = true;
+
     private void Start()
     {
         Vector2 myPos = transform.position; //클릭한 유닛의 월드 좌표 저장
@@ -22,6 +24,12 @@ public class DragAndDrop : MonoBehaviour, ISelectable
             }
         }
     }
+
+    public void MarkAsDead()
+    {
+        isAlive = false;
+    }
+
 
     private void OnMouseDown()
     {
@@ -37,6 +45,7 @@ public class DragAndDrop : MonoBehaviour, ISelectable
 
     private void OnMouseDrag()
     {
+        if (!isAlive) return;
 
         SelectionManager.Instance.Select(this);
 
@@ -49,7 +58,9 @@ public class DragAndDrop : MonoBehaviour, ISelectable
 
     private void OnMouseUp()
     {
-         SelectionManager.Instance.Select(this);
+        if (!isAlive) return;
+
+        SelectionManager.Instance.Select(this);
 
         Tile targetTile = FindClosestTile();
 
@@ -95,6 +106,8 @@ public class DragAndDrop : MonoBehaviour, ISelectable
 
     private void SwapWith(DragAndDrop other) // 다른 유닛과 위치와 타일정보 교환
     {
+        if (other == null || other.currentTile == null) return;
+
         Tile originalTile = currentTile;
         Tile targetTile = other.currentTile;
 
@@ -139,7 +152,7 @@ public class DragAndDrop : MonoBehaviour, ISelectable
 
     public void OnSelected()
     {
-        Debug.Log("선택됨");
+        //Debug.Log("선택됨");
         var meta = GetComponent<UnitMetadata>();
         if (meta != null)
         {
@@ -149,7 +162,7 @@ public class DragAndDrop : MonoBehaviour, ISelectable
 
     public void OnDeselected()
     {
-        Debug.Log("선택 해제");
+        //Debug.Log("선택 해제");
         InfoUIManager.Instance.Hide();
     }
 

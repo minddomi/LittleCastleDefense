@@ -12,14 +12,19 @@ public class InfoUIManager : MonoBehaviour
     public TMP_Text gradeText;
     public TMP_Text attackText;
 
+    public UnitSell sellButton;
+
     void Awake()
     {
         Instance = this;
         panel.SetActive(false);
     }
 
+
     public void Show(UnitMetadata meta)
     {
+        sellButton.SetTarget(meta);
+
         //Debug.Log("정보창 표시");
         panel.SetActive(true);
 
