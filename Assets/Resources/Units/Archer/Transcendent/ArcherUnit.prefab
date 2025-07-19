@@ -42,9 +42,9 @@ GameObject:
   - component: {fileID: 1671449466206724212}
   - component: {fileID: 8013590433335322588}
   - component: {fileID: -5041245343947195753}
-  - component: {fileID: -3133266886963544649}
   - component: {fileID: 943377649809275207}
-  - component: {fileID: -3220589045483723881}
+  - component: {fileID: -7679922853256398235}
+  - component: {fileID: 5246999028727559637}
   m_Layer: 0
   m_Name: ArcherUnit
   m_TagString: Untagged
@@ -165,19 +165,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.87, y: 3.87}
   m_EdgeRadius: 0
---- !u!114 &-3133266886963544649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6843110344384958407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76788f94d4fba1543958cb38c288ecc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTile: {fileID: 0}
 --- !u!114 &943377649809275207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +183,7 @@ MonoBehaviour:
   attackPower: 50
   projectilePrefab: {fileID: 5536264141123835531, guid: c2e70c64fbe76ff409779a73fc18ccbf, type: 3}
   firePoint: {fileID: 2314160437970800667}
---- !u!114 &-3220589045483723881
+--- !u!114 &-7679922853256398235
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,10 +192,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 6843110344384958407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9a4c5afcae14cb409ea8970fcd86607, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c52cdd33f2a31b4298d4b42d8289229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitData:
+    unitID: 
+    unitName: 
+    unitClass: 0
+    unitGrade: 0
+    gradeName: 
+    attackPower: 0
+    attackRange: 0
+    attackCooldown: 0
+    critRate: 0
+    sellGold: 0
+    isBuffer: 0
+    buffType: 0
+    isEquipItem: 0
+    equippedItemID: 
+    prefabPath: 
+    posX: 0
+    posY: 0
+  unitID: 
+  unitName: 
   unitClass: 0
   unitGrade: 0
-  baseAttack: 50
-  bonusAttack: 0
+  gradeName: 
+  attackPower: 0
+  attackRange: 0
+  attackCooldown: 0
+  critRate: 0
+  sellGold: 0
+  isBuffer: 0
+  buffType: 0
+  isEquipItem: 0
+  equippedItemID: 
+  prefabPath: 
+  posX: 0
+  posY: 0
+--- !u!114 &5246999028727559637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843110344384958407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce5547e9b326ff41b53232534da2043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTile: {fileID: 4831977615079914286, guid: 674fffadf6414a0499890b9289150a0d, type: 3}

@@ -2,20 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragAndDrop : MonoBehaviour, ISelectable
+public class DragAndDrop : MonoBehaviour
 {
     private Vector3 offset;
     public Tile currentTile;
 
     private static readonly Vector3 TileDepth = new Vector3(0, 0, -1); //모든 y값 -1로 설정
 
-    private bool isAlive = true;
-
     private void Start()
     {
         Vector2 myPos = transform.position; //클릭한 유닛의 월드 좌표 저장
 
-        foreach (Tile tile in FindObjectsOfType<Tile>()) 
+        foreach (Tile tile in FindObjectsOfType<Tile>())
         {
             if ((Vector2)tile.transform.position == myPos) // 유닛위치와 타일위치가 같은곳을 찾고
             {
@@ -25,16 +23,8 @@ public class DragAndDrop : MonoBehaviour, ISelectable
         }
     }
 
-    public void MarkAsDead()
-    {
-        isAlive = false;
-    }
-
-
     private void OnMouseDown()
     {
-        SelectionManager.Instance.Select(this);
-
         // 클릭 시 유닛을 마우스 중앙으로 바로 이동
         Vector3 mousePos = GetMouseWorldPos();
         mousePos.z = -2f;
@@ -45,11 +35,7 @@ public class DragAndDrop : MonoBehaviour, ISelectable
 
     private void OnMouseDrag()
     {
-        if (!isAlive) return;
-
-        SelectionManager.Instance.Select(this);
-
-        Vector3 dragPos = GetMouseWorldPos() + offset; 
+        Vector3 dragPos = GetMouseWorldPos() + offset;
         dragPos.z = -2f; //z값 -2로 설정해서 유닛끼리 겹치는걸 방지
         transform.position = Vector3.Lerp(transform.position, dragPos, Time.deltaTime * 40f);
         //유닛의 현재 위치에서 마우스 위치까지 부드럽게 따라가게함
@@ -58,10 +44,6 @@ public class DragAndDrop : MonoBehaviour, ISelectable
 
     private void OnMouseUp()
     {
-        if (!isAlive) return;
-
-        SelectionManager.Instance.Select(this);
-
         Tile targetTile = FindClosestTile();
 
         if (targetTile == null) // 드롭했는데 타일이 없을시
@@ -106,8 +88,6 @@ public class DragAndDrop : MonoBehaviour, ISelectable
 
     private void SwapWith(DragAndDrop other) // 다른 유닛과 위치와 타일정보 교환
     {
-        if (other == null || other.currentTile == null) return;
-
         Tile originalTile = currentTile;
         Tile targetTile = other.currentTile;
 
@@ -121,8 +101,7 @@ public class DragAndDrop : MonoBehaviour, ISelectable
     private void SetTile(Tile tile) //유닛과 타일간 점유 관계를 연결해주는 함수
     {
         currentTile = tile;
-        tile.isOccupied = true;
-        tile.currentUnit = gameObject;
+        tile.SetCurrentUnit(gameObject);
     }
 
     private Tile FindClosestTile() // 가장 가까운 Tile을 찾아주는 함수
@@ -133,9 +112,9 @@ public class DragAndDrop : MonoBehaviour, ISelectable
         foreach (var tile in FindObjectsOfType<Tile>())
         {
             float dist = Vector2.Distance(tile.transform.position, transform.position);
-            if (dist < 0.5f && dist < minDist) 
+            if (dist < 0.5f && dist < minDist)
             {
-                minDist = dist; 
+                minDist = dist;
                 closestTile = tile;
             }
         }
@@ -149,21 +128,4 @@ public class DragAndDrop : MonoBehaviour, ISelectable
         mousePos.z = 0f;
         return mousePos;
     }
-
-    public void OnSelected()
-    {
-        //Debug.Log("선택됨");
-        var meta = GetComponent<UnitMetadata>();
-        if (meta != null)
-        {
-            InfoUIManager.Instance.Show(meta);
-        }
-    }
-
-    public void OnDeselected()
-    {
-        //Debug.Log("선택 해제");
-        InfoUIManager.Instance.Hide();
-    }
-
 }

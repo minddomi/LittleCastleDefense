@@ -10,4 +10,21 @@ public class Tile : MonoBehaviour
 
     public GameObject currentUnit;
     // 현재 이 타일 위에 올라가 있는 유닛 (DragAndDrop 에서 활용)
+
+    public void SetCurrentUnit(GameObject unit)
+    {
+        currentUnit = unit;
+        isOccupied = (unit != null);
+
+        if (unit != null)
+        {
+            UnitStatus status = unit.GetComponent<UnitStatus>();
+            if (status != null)
+            {
+                status.posX = gridPosition.x;
+                status.posY = gridPosition.y;
+            }
+        }
+    }
+
 }
