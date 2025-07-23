@@ -19,7 +19,7 @@ public class UnitSpawner : MonoBehaviour
             return;
         }
 
-        Debug.Log($" [유닛 로딩 성공] ID: {unitID} | 이름: {unitdata.unitName} | 등급: {unitdata.unitGrade} | 공격력: {unitdata.attackPower}[유닛 정보]");
+        //Debug.Log($" [유닛 로딩 성공] ID: {unitID} | 이름: {unitdata.unitName} | 등급: {unitdata.unitGrade} | 공격력: {unitdata.attackPower}[유닛 정보]");
 
         if (!ResourceManager.Instance.TryUseResource(50))
         {
@@ -54,7 +54,7 @@ public class UnitSpawner : MonoBehaviour
         if (status != null)
         {
             status.Initialize(unitdata, randomTile.gridPosition);
-            Debug.Log($"[유닛 정보] {status.unitName} 위치: ({status.posX}, {status.posY})");
+            //Debug.Log($"[유닛 정보] {status.unitName} 위치: ({status.posX}, {status.posY})");
         }
 
         randomTile.isOccupied = true;

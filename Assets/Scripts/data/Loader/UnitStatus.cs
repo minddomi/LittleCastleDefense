@@ -28,6 +28,8 @@ public class UnitStatus : MonoBehaviour
     public int posX;
     public int posY;
 
+    public bool canMerge;
+
     public void Initialize(UnitData data, Vector2Int pos)
     {
         unitID = data.unitID;
@@ -51,5 +53,7 @@ public class UnitStatus : MonoBehaviour
 
         posX = pos.x;
         posY = pos.y;
+
+        canMerge = data.canMerge;
     }
 }

@@ -26,4 +26,6 @@ public class UnitData
 
     public float posX;
     public float posY;
+
+    public bool canMerge;
 }

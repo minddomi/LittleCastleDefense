@@ -31,6 +31,13 @@ public class DragAndDrop : MonoBehaviour
         transform.position = mousePos;
 
         offset = Vector3.zero;
+
+        UnitStatus status = GetComponent<UnitStatus>();
+        if (status != null)
+        {
+            UnitInfoManager.Instance.ShowInfo(status);
+            MergeManager.Instance.TryAssignUnit(status);
+        }
     }
 
     private void OnMouseDrag()
