@@ -161,8 +161,12 @@ MonoBehaviour:
   unitType: 0
   attackRange: 5
   attackInterval: 1.5
+  attackPower: 50
+  upgradeLevel: 0
+  upgradePower: 0
   projectilePrefab: {fileID: 5536264141123835531, guid: c2e70c64fbe76ff409779a73fc18ccbf, type: 3}
   firePoint: {fileID: 3975679790584352824}
+  aoeEffectPrefab: {fileID: 5536264141123835531, guid: c2e70c64fbe76ff409779a73fc18ccbf, type: 3}
 --- !u!1 &8693058573456310078
 GameObject:
   m_ObjectHideFlags: 0

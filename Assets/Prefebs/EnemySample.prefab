@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 383f4f21330aed546b7defd5c83de948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  size: 1
   health: 100
   speed: 9.5
   waypoints: []
+  healthBarPrefab: {fileID: 4517115764040720911, guid: 53930c22a9207c94496fd091dd8892f4, type: 3}
