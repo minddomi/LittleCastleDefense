@@ -101,4 +101,4 @@ MonoBehaviour:
   health: 100
   speed: 9.5
   waypoints: []
-  healthBarPrefab: {fileID: 4517115764040720911, guid: 53930c22a9207c94496fd091dd8892f4, type: 3}
+  healthBarPrefab: {fileID: 4517115764040720911, guid: ecaec52d2665e754f93c30cb4900dd30, type: 3}

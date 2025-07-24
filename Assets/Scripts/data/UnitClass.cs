@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum UnitClass
 {
-    Archer,
-    Mage,
-    Siege
+    Archer = 0,
+    Mage = 1,
+    Siege = 2,
+    Buffer = 3
 }

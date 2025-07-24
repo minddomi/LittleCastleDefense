@@ -13,7 +13,7 @@ public class DragAndDrop : MonoBehaviour
     {
         Vector2 myPos = transform.position; //클릭한 유닛의 월드 좌표 저장
 
-        foreach (Tile tile in FindObjectsOfType<Tile>()) 
+        foreach (Tile tile in FindObjectsOfType<Tile>())
         {
             if ((Vector2)tile.transform.position == myPos) // 유닛위치와 타일위치가 같은곳을 찾고
             {
@@ -31,11 +31,18 @@ public class DragAndDrop : MonoBehaviour
         transform.position = mousePos;
 
         offset = Vector3.zero;
+
+        UnitStatus status = GetComponent<UnitStatus>();
+        if (status != null)
+        {
+            UnitInfoManager.Instance.ShowInfo(status);
+            MergeManager.Instance.TryAssignUnit(status);
+        }
     }
 
     private void OnMouseDrag()
     {
-        Vector3 dragPos = GetMouseWorldPos() + offset; 
+        Vector3 dragPos = GetMouseWorldPos() + offset;
         dragPos.z = -2f; //z값 -2로 설정해서 유닛끼리 겹치는걸 방지
         transform.position = Vector3.Lerp(transform.position, dragPos, Time.deltaTime * 40f);
         //유닛의 현재 위치에서 마우스 위치까지 부드럽게 따라가게함
@@ -101,8 +108,7 @@ public class DragAndDrop : MonoBehaviour
     private void SetTile(Tile tile) //유닛과 타일간 점유 관계를 연결해주는 함수
     {
         currentTile = tile;
-        tile.isOccupied = true;
-        tile.currentUnit = gameObject;
+        tile.SetCurrentUnit(gameObject);
     }
 
     private Tile FindClosestTile() // 가장 가까운 Tile을 찾아주는 함수
@@ -113,9 +119,9 @@ public class DragAndDrop : MonoBehaviour
         foreach (var tile in FindObjectsOfType<Tile>())
         {
             float dist = Vector2.Distance(tile.transform.position, transform.position);
-            if (dist < 0.5f && dist < minDist) 
+            if (dist < 0.5f && dist < minDist)
             {
-                minDist = dist; 
+                minDist = dist;
                 closestTile = tile;
             }
         }

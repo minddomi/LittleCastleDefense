@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 1671449466206724212}
   - component: {fileID: 8013590433335322588}
   - component: {fileID: 3281124941570824097}
-  - component: {fileID: -3401006532278314198}
   - component: {fileID: 1016635587316071326}
+  - component: {fileID: -7907531824995078058}
+  - component: {fileID: 3168866024818594966}
   m_Layer: 0
   m_Name: ArcherUnit
   m_TagString: Untagged
@@ -133,19 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.87, y: 3.87}
   m_EdgeRadius: 0
---- !u!114 &-3401006532278314198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6843110344384958407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76788f94d4fba1543958cb38c288ecc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTile: {fileID: 0}
 --- !u!114 &1016635587316071326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,8 +149,69 @@ MonoBehaviour:
   unitType: 0
   attackRange: 5
   attackInterval: 1.5
+  attackPower: 50
   projectilePrefab: {fileID: 5536264141123835531, guid: c2e70c64fbe76ff409779a73fc18ccbf, type: 3}
   firePoint: {fileID: 3281562867651198120}
+--- !u!114 &-7907531824995078058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843110344384958407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c52cdd33f2a31b4298d4b42d8289229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitData:
+    unitID: 
+    unitName: 
+    unitClass: 0
+    unitGrade: 0
+    gradeName: 
+    attackPower: 0
+    attackRange: 0
+    attackCooldown: 0
+    critRate: 0
+    sellGold: 0
+    isBuffer: 0
+    buffType: 0
+    isEquipItem: 0
+    equippedItemID: 
+    prefabPath: 
+    posX: 0
+    posY: 0
+  unitID: 
+  unitName: 
+  unitClass: 0
+  unitGrade: 0
+  gradeName: 
+  attackPower: 0
+  attackRange: 0
+  attackCooldown: 0
+  critRate: 0
+  sellGold: 0
+  isBuffer: 0
+  buffType: 0
+  isEquipItem: 0
+  equippedItemID: 
+  prefabPath: 
+  posX: 0
+  posY: 0
+--- !u!114 &3168866024818594966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843110344384958407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce5547e9b326ff41b53232534da2043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTile: {fileID: 4831977615079914286, guid: 674fffadf6414a0499890b9289150a0d, type: 3}
 --- !u!1 &8174809934016446151
 GameObject:
   m_ObjectHideFlags: 0
