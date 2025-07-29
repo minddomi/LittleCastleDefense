@@ -27,7 +27,7 @@ public class EquipSlot : MonoBehaviour, IDropHandler
         {
             equippedItemObject = Instantiate(prefab, transform);
             equippedItemObject.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-            Debug.Log($"[SetTarget] {unitStatus.unitName}ÀÇ ÀåÂø ¾ÆÀÌÅÛ {unitStatus.equippedItemID} Ç¥½ÃµÊ");
+            //Debug.Log($"[SetTarget] {unitStatus.unitName}ÀÇ ÀåÂø ¾ÆÀÌÅÛ {unitStatus.equippedItemID} Ç¥½ÃµÊ");
         }
         else
         {
