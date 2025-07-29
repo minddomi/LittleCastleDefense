@@ -12,10 +12,12 @@ public class UnitInfoManager : MonoBehaviour
     public TMPro.TextMeshProUGUI attackText;
 
     public UnitSeller unitSeller;
+    public EquipSlot equipSlot;
 
     private void Awake()
     {
         Instance = this;
+        infoPanel.SetActive(false);
     }
 
     void Update()
@@ -41,7 +43,8 @@ public class UnitInfoManager : MonoBehaviour
         attackText.text = "Attack: " + status.attackPower.ToString();
 
         unitSeller.SetTarget(status);
-
+        equipSlot.SetTarget(status);
+       
         infoPanel.SetActive(true);
     }
 }
