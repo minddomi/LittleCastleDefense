@@ -9,15 +9,20 @@ public class Projectile : MonoBehaviour
     private AllyUnit.UnitType ownerType;
     private float ownerAttackPower;
 
+    private float critChance;
+    private float critMultiplier;
+
     private int maxBounces = 5; // Æ¨±è Á¦ÇÑ
     private int currentBounce = 0;
     private HashSet<EnemyUnit> hitEnemies = new HashSet<EnemyUnit>();
 
-    public void SetTarget(Transform enemy, AllyUnit.UnitType unitType, float attackPower)
+    public void SetTarget(Transform enemy, AllyUnit.UnitType unitType, float attackPower, float critChance, float critMultiplier)
     {
         target = enemy;
         ownerType = unitType;
         ownerAttackPower = attackPower;
+        this.critChance = critChance;
+        this.critMultiplier = critMultiplier;
     }
 
     void Update()
@@ -55,6 +60,14 @@ public class Projectile : MonoBehaviour
 
             float multiplier = GetDamageMultiplier(ownerType, enemy.size);
             float damage = ownerAttackPower * multiplier;
+
+            bool isCritical = Random.value < critChance;
+            if (isCritical)
+            {
+                damage *= critMultiplier;
+                Debug.Log($"CRITICAL HIT! {enemy.name} took {damage}");
+            }
+
             enemy.TakeDamage(damage);
 
             if (ownerType == AllyUnit.UnitType.Supreme && currentBounce < maxBounces)

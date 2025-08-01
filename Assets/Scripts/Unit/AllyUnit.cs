@@ -20,6 +20,9 @@ public class AllyUnit : MonoBehaviour
     public float upgradeLevel = 0.0f; // 업그레이드 레벨
     public float upgradePower = 0.0f; // 업그레이드 공격력
 
+    public float criticalChance = 0f;         // 0~1 범위 (예: 0.25f = 25%)
+    public float criticalMultiplier = 3f;     // 치명타 배율 (예: 3f = 3배)
+
     public GameObject projectilePrefab;
     public Transform firePoint;
 
@@ -80,7 +83,7 @@ public class AllyUnit : MonoBehaviour
         Projectile projectile = proj.GetComponent<Projectile>();
 
         float totalPower = attackPower + upgradePower; // 총 데미지 계산
-        projectile.SetTarget(target, unitType, totalPower); //
+        projectile.SetTarget(target, unitType, totalPower, criticalChance, criticalMultiplier);
     }
 
     void PerformAoEAttack()
