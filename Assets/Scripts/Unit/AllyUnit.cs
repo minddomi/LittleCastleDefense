@@ -21,6 +21,8 @@ public class AllyUnit : MonoBehaviour
     public float upgradeLevel = 0.0f; // 업그레이드 레벨
     public float upgradePower = 0.0f; // 업그레이드 공격력
 
+    public float TotalAttackPower;
+
     public float criticalChance = 0f;         // 0~1 범위 (예: 0.25f = 25%)
     public float criticalMultiplier = 3f;     // 치명타 배율 (예: 3f = 3배)
 
@@ -43,6 +45,7 @@ public class AllyUnit : MonoBehaviour
     void Update()
     {
         attackTimer += Time.deltaTime;
+        TotalAttackPower = attackPower + upgradePower;
         if (attackTimer >= attackInterval)
         {
             if (unitType == UnitType.Transcendence)
