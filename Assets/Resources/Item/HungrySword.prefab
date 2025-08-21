@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 967440732610177491}
   - component: {fileID: 473778345871399553}
   - component: {fileID: 5923969150898714282}
-  - component: {fileID: -2689755231225753822}
-  - component: {fileID: -34474247580485644}
+  - component: {fileID: 2589692834514411312}
+  - component: {fileID: 2877662544647508941}
   m_Layer: 5
-  m_Name: Item2
+  m_Name: HungrySword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13259208, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-2689755231225753822
+--- !u!114 &2589692834514411312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,8 +89,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9e13d9533571346a962c6cffc73787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEquipped: 0
   currentSlot: {fileID: 0}
---- !u!225 &-34474247580485644
+--- !u!225 &2877662544647508941
 CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

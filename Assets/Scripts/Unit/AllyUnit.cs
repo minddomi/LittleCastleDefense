@@ -35,15 +35,20 @@ public class AllyUnit : MonoBehaviour
 
     private Dictionary<BufferUnit, float> activeBuffs = new Dictionary<BufferUnit, float>();
 
+    private UnitStatus unitStatus; // 아이템 관련 추가
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        unitStatus = GetComponent<UnitStatus>(); // 아이템 관련 추가
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (unitStatus != null && ItemEffectsManager.Instance != null) // 아이템 관련 추가
+            ItemEffectsManager.Instance.Sync(this, unitStatus);
+
         attackTimer += Time.deltaTime;
         TotalAttackPower = attackPower + upgradePower;
         if (attackTimer >= attackInterval)
