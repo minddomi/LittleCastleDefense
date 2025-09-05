@@ -16,6 +16,9 @@ public class EnemyUnit : MonoBehaviour
 
     private int currentWaypointIndex = 0;
 
+    private bool isFrozen = false;
+    private float freezeTimer = 0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,18 @@ public class EnemyUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // 정지 상태 처리
+        if (isFrozen)
+        {
+            freezeTimer -= Time.deltaTime;
+            if (freezeTimer <= 0f)
+            {
+                isFrozen = false;
+                Debug.Log($"{name} 정지 해제됨");
+            }
+            return; // 정지 중이면 이동하지 않음
+        }
+
         if (waypoints == null || waypoints.Length == 0) return;
 
         Transform target = waypoints[currentWaypointIndex];
@@ -48,6 +63,13 @@ public class EnemyUnit : MonoBehaviour
             if (currentWaypointIndex >= waypoints.Length)
                 currentWaypointIndex = 0;
         }
+    }
+
+    public void Freeze(float duration)
+    {
+        isFrozen = true;
+        freezeTimer = duration;
+        Debug.Log($"{name} 정지됨 ({duration}초)");
     }
 
     public void TakeDamage(float damage)

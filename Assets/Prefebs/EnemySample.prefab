@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4486315900149112816}
   - component: {fileID: 6542274692750614997}
   - component: {fileID: 486945227339143597}
+  - component: {fileID: 998179771469776364}
   m_Layer: 0
   m_Name: EnemySample
   m_TagString: Enemy
@@ -102,3 +103,24 @@ MonoBehaviour:
   speed: 9.5
   waypoints: []
   healthBarPrefab: {fileID: 4517115764040720911, guid: ecaec52d2665e754f93c30cb4900dd30, type: 3}
+--- !u!65 &998179771469776364
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4942287168714141576}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 3, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
