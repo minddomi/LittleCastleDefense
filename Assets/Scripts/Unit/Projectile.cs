@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
 
     private Transform target;
     private AllyUnit.UnitType ownerType;
+    private AllyUnit.UnitGrade ownerGrade;
     private float ownerAttackPower;
 
     private float critChance;
@@ -47,7 +48,7 @@ public class Projectile : MonoBehaviour
         if (enemy != null)
         {
             // 최고 유닛일 경우: 중복 제거
-            if (ownerType == AllyUnit.UnitType.Supreme)
+            if (ownerGrade == AllyUnit.UnitGrade.Supreme)
             {
                 if (hitEnemies.Contains(enemy))
                 {
@@ -70,7 +71,7 @@ public class Projectile : MonoBehaviour
 
             enemy.TakeDamage(damage);
 
-            if (ownerType == AllyUnit.UnitType.Supreme && currentBounce < maxBounces)
+            if (ownerGrade == AllyUnit.UnitGrade.Supreme && currentBounce < maxBounces)
             {
                 currentBounce++;
                 Transform nextTarget = FindNextEnemy(enemy);

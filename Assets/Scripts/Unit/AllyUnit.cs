@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class AllyUnit : MonoBehaviour
 {
-    public enum UnitType
+    public enum UnitType  // 유닛 종족
     {
-        Archer = 0,
+        Archer = 0, 
         Wizard = 1,
         Siege = 2,
-        Supreme = 3,       // 최고 등급 유닛
-        Transcendence = 4,  // 초월 등급 유닛
-        Buffer = 5
+        Buffer = 3
+    }
+
+    public enum UnitGrade  // 유닛 등급
+    {
+        Basic,
+        Intermediate,
+        Advanced,
+        Epic,
+        Supreme,
+        Transcendence
     }
 
     public UnitType unitType;
+    public UnitGrade unitGrade = UnitGrade.Basic;
+
     public float attackRange = 5f; // 공격 범위
     public float attackInterval = 1.5f; // 공격 쿨다운
     public float attackPower = 50f; // 공격력
@@ -28,12 +38,11 @@ public class AllyUnit : MonoBehaviour
 
     public GameObject projectilePrefab;
     public Transform firePoint;
-
-    public GameObject aoeEffectPrefab; // 초월 유닛용 범위 이펙트
+    public GameObject aoeEffectPrefab; // 초월 유닛용 범위 이펙트    
 
     private float attackTimer = 0f;
 
-    private Dictionary<BufferUnit, float> activeBuffs = new Dictionary<BufferUnit, float>();
+    private Dictionary<BufferUnit, BufferUnit.BuffData> activeBuffs = new();
 
     // Start is called before the first frame update
     void Start()
@@ -46,19 +55,15 @@ public class AllyUnit : MonoBehaviour
     {
         attackTimer += Time.deltaTime;
         TotalAttackPower = attackPower + upgradePower;
+
         if (attackTimer >= attackInterval)
         {
-            if (unitType == UnitType.Transcendence)
-            {
-                PerformAoEAttack();
-            }
-            else if (unitType != UnitType.Buffer) // BufferUnit은 별도 스크립트에서 처리
+            if (unitType != UnitType.Buffer)    // BufferUnit은 별도 스크립트에서 처리
             {
                 GameObject target = FindClosestEnemyInRange();
                 if (target != null)
                     Shoot(target.transform);
             }
-
             attackTimer = 0f;
         }
     }
@@ -78,7 +83,6 @@ public class AllyUnit : MonoBehaviour
                 closest = enemy;
             }
         }
-
         return closest;
     }
 
@@ -87,41 +91,19 @@ public class AllyUnit : MonoBehaviour
         GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
         Projectile projectile = proj.GetComponent<Projectile>();
 
-        float totalPower = attackPower + upgradePower; // 총 데미지 계산
+        float totalPower = attackPower + upgradePower;          // 총 데미지 계산
         projectile.SetTarget(target, unitType, totalPower, criticalChance, criticalMultiplier);
     }
 
-    void PerformAoEAttack()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        float totalPower = attackPower + upgradePower;
-
-        foreach (GameObject enemyObj in enemies)
-        {
-            float dist = Vector3.Distance(transform.position, enemyObj.transform.position);
-            if (dist <= attackRange)
-            {
-                EnemyUnit enemy = enemyObj.GetComponent<EnemyUnit>();
-                if (enemy != null)
-                {
-                    enemy.TakeDamage(totalPower);
-                }
-            }
-        }
-
-        if (aoeEffectPrefab != null)
-        {
-            GameObject fx = Instantiate(aoeEffectPrefab, transform.position, Quaternion.identity);
-            Destroy(fx, 1.5f);
-        }
-    }
-
-    public void AddBuffFrom(BufferUnit buffer, float value)
+    // 버프 처리
+    public void AddBuffFrom(BufferUnit buffer, BufferUnit.BuffData data)
     {
         if (!activeBuffs.ContainsKey(buffer))
         {
-            upgradePower += value;
-            activeBuffs[buffer] = value;
+            upgradePower += attackPower * (data.powerMultiplier - 1f);
+            attackInterval *= data.attackSpeedMultiplier;
+            criticalChance += data.critChanceBonus;
+            activeBuffs[buffer] = data;
         }
     }
 
@@ -129,9 +111,11 @@ public class AllyUnit : MonoBehaviour
     {
         if (activeBuffs.ContainsKey(buffer))
         {
-            upgradePower -= activeBuffs[buffer];
+            BufferUnit.BuffData data = activeBuffs[buffer];
+            upgradePower -= attackPower * (data.powerMultiplier - 1f);
+            attackInterval /= data.attackSpeedMultiplier;
+            criticalChance -= data.critChanceBonus;
             activeBuffs.Remove(buffer);
         }
     }
-
 }
