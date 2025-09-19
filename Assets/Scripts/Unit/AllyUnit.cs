@@ -9,7 +9,8 @@ public class AllyUnit : MonoBehaviour
         Archer = 0, 
         Wizard = 1,
         Siege = 2,
-        Buffer = 3
+        Buffer = 3,
+        Joker = 4
     }
 
     public enum UnitGrade  // 유닛 등급
@@ -116,6 +117,15 @@ public class AllyUnit : MonoBehaviour
             attackInterval /= data.attackSpeedMultiplier;
             criticalChance -= data.critChanceBonus;
             activeBuffs.Remove(buffer);
+        }
+    }
+    void OnMouseDown()
+    {
+        // 조커 유닛만 클릭 시 삭제
+        if (unitType == UnitType.Joker)
+        {
+            Debug.Log("Joker Unit clicked and removed!");
+            Destroy(gameObject);
         }
     }
 }
