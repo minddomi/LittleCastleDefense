@@ -38,8 +38,8 @@ public class MergeManager : MonoBehaviour
 
         if (currentSelectedSlot != null && currentSelectedSlot.isSelected)
         {
-            currentSelectedSlot.SetUnitID(unit.unitID);
-            currentSelectedSlot.assignedUnit = unit;
+            currentSelectedSlot.SetUnit(unit);   // UnitStatus 통째로 전달
+            //currentSelectedSlot.SetUnitPrefab(unit.prefabPath);
             unit.canMerge = false;
 
             currentSelectedSlot.SetHighlight(false);

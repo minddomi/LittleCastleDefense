@@ -70,8 +70,9 @@ public class UnitDataLoader : MonoBehaviour
 
             unit.posX = float.Parse(values[15]);
             unit.posY = float.Parse(values[16]);
-
+            unit.UIPath = values[17];
             unit.canMerge = true;
+            
 
             unitDataMap[unit.unitID] = unit;
         }

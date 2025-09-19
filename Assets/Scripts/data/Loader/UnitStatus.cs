@@ -30,6 +30,8 @@ public class UnitStatus : MonoBehaviour
 
     public bool canMerge;
 
+    public string UIPath;
+
     public void Initialize(UnitData data, Vector2Int pos)
     {
         unitID = data.unitID;
@@ -55,5 +57,7 @@ public class UnitStatus : MonoBehaviour
         posY = pos.y;
 
         canMerge = data.canMerge;
+
+        UIPath = data.UIPath;
     }
 }

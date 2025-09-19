@@ -28,4 +28,6 @@ public class UnitData
     public float posY;
 
     public bool canMerge;
+
+    public string UIPath;
 }
