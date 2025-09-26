@@ -7,5 +7,6 @@ public enum UnitClass
     Archer = 0,
     Mage = 1,
     Siege = 2,
-    Buffer = 3
+    Buffer = 3,
+    Joker = 4
 }

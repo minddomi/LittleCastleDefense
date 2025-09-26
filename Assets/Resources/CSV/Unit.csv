@@ -23,3 +23,5 @@ Buffer3,버퍼3,Buffer,Advanced,고급,25,0,0,0,35,TRUE,None,FALSE,None,Units/Bu
 Buffer4,버퍼4,Buffer,Epic,서사,35,0,0,0,40,TRUE,None,FALSE,None,Units/Buffer/Epic/Buffer4Unit,0,0,Units_UI/Buffer/Buffer4_UI,TRUE
 Buffer5,버퍼5,Buffer,Transcendent,초월,60,0,0,0,0,TRUE,None,FALSE,None,Units/Buffer/Transcendent/Buffer5Unit,0,0,Units_UI/Buffer/Buffer5_UI,TRUE
 Buffer6,버퍼6,Buffer,Supreme,최고,110,0,0,0,0,TRUE,None,FALSE,None,Units/Buffer/Supreme/Buffer6Unit,0,0,Units_UI/Buffer/Buffer6_UI,TRUE
+Joker1,조커1,Joker,Basic,초급,0,0,0,0,0,FALSE,None,FALSE,None,Units/Joker/Joker1,0,0,Units_UI/Joker/Joker1_UI,FALSE
+Joker2,조커2,Joker,Basic,초급,0,0,0,0,0,FALSE,None,FALSE,None,Units/Joker/Joker2,0,0,Units_UI/Joker/Joker2_UI,FALSE

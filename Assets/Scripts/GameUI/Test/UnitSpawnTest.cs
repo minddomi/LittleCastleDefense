@@ -12,7 +12,7 @@ public class UnitSpawnTest : MonoBehaviour
     public void OnClickSpawn()
     {
         string unitID = inputField.text.Trim();
-        Debug.Log($"[버튼 클릭됨] 입력된 ID: '{unitID}'");
+        //Debug.Log($"[버튼 클릭됨] 입력된 ID: '{unitID}'");
 
         if (!string.IsNullOrEmpty(unitID))
         {
