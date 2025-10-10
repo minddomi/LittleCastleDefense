@@ -96,6 +96,8 @@ public class AllyUnit : MonoBehaviour
         projectile.SetTarget(target, unitType, totalPower, criticalChance, criticalMultiplier);
     }
 
+    private readonly Dictionary<object, BufferUnit.BuffData> _buffs = new();
+
     // 버프 처리
     public void AddBuffFrom(BufferUnit buffer, BufferUnit.BuffData data)
     {
@@ -119,6 +121,9 @@ public class AllyUnit : MonoBehaviour
             activeBuffs.Remove(buffer);
         }
     }
+
+    public IEnumerable<BufferUnit.BuffData> GetActiveBuffs() => _buffs.Values;
+
     void OnMouseDown()
     {
         // 조커 유닛만 클릭 시 삭제
