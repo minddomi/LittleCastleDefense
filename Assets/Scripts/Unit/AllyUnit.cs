@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class AllyUnit : MonoBehaviour
 {
+    private UnitStatus unitStatus;
+
     public enum UnitType  // 유닛 종족
     {
         Archer = 0, 
@@ -24,18 +27,18 @@ public class AllyUnit : MonoBehaviour
     }
 
     public UnitType unitType;
-    public UnitGrade unitGrade = UnitGrade.Basic;
+    public UnitGrade unitGrade;
 
-    public float attackRange = 5f; // 공격 범위
-    public float attackInterval = 1.5f; // 공격 쿨다운
-    public float attackPower = 50f; // 공격력
-    public float upgradeLevel = 0.0f; // 업그레이드 레벨
-    public float upgradePower = 0.0f; // 업그레이드 공격력
+    public float attackRange; // 공격 범위 int
+    public float attackInterval; // 공격 쿨다운 float
+    public float attackPower; // 공격력 float
+    public float upgradeLevel; // 업그레이드 레벨 float
+    public float upgradePower; // 업그레이드 공격력 float
 
     public float TotalAttackPower;
 
-    public float criticalChance = 0f;         // 0~1 범위 (예: 0.25f = 25%)
-    public float criticalMultiplier = 3f;     // 치명타 배율 (예: 3f = 3배)
+    public float criticalChance;         // 0~1 범위 (예: 0.25f = 25%) float
+    public float criticalMultiplier;     // 치명타 배율 (예: 3f = 3배) float
 
     public GameObject projectilePrefab;
     public Transform firePoint;
@@ -45,19 +48,55 @@ public class AllyUnit : MonoBehaviour
 
     private Dictionary<BufferUnit, BufferUnit.BuffData> activeBuffs = new();
 
-    private UnitStatus unitStatus; // 아이템 관련 추가
+    public event Action OnAttackFired;// 발사 후 알림
+
+    private bool isFrozen = false; // 유닛 정지상태
+    private float freezeTimer = 0f;
+
+    public bool ignoreTypeForDamage = false; // 평등의 저울
+    public bool blockBufferBuffs = false; // 부서진 성배
+    public bool targetRandom = false; // 혼돈의 수정
 
     // Start is called before the first frame update
     void Start()
     {
         unitStatus = GetComponent<UnitStatus>(); // 아이템 관련 추가
+
+        unitType = unitStatus.unitClass switch
+        {
+            UnitClass.Archer => UnitType.Archer,
+            UnitClass.Mage => UnitType.Wizard,
+            UnitClass.Siege => UnitType.Siege,
+            UnitClass.Buffer => UnitType.Buffer,
+            UnitClass.Joker => UnitType.Joker,
+            _ => UnitType.Archer
+        };
+        unitGrade = (UnitGrade)unitStatus.unitGrade;
+        unitGrade = (UnitGrade)unitStatus.unitGrade;
+        attackRange = unitStatus.attackRange;
+        attackInterval = unitStatus.attackInterval;
+        attackPower = unitStatus.attackPower;
+        upgradeLevel = unitStatus.upgradeLevel;
+        upgradePower = unitStatus.upgradePower;
+        TotalAttackPower = unitStatus.TotalAttackPower;
+        criticalChance = unitStatus.criticalChance;
+        criticalMultiplier = unitStatus.criticalMultiplier;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (unitStatus != null && ItemEffectsManager.Instance != null) // 아이템 관련 추가
+        if (ItemEffectsManager.Instance != null) // 아이템 관련 추가
+        {
             ItemEffectsManager.Instance.Sync(this, unitStatus);
+        }
+
+        if (isFrozen) // 유닛 정지상태
+        {
+            freezeTimer -= Time.deltaTime;
+            if (freezeTimer <= 0f) { isFrozen = false; }
+            return;
+        }
 
         attackTimer += Time.deltaTime;
         TotalAttackPower = attackPower + upgradePower;
@@ -69,6 +108,7 @@ public class AllyUnit : MonoBehaviour
                 GameObject target = FindClosestEnemyInRange();
                 if (target != null)
                     Shoot(target.transform);
+                    OnAttackFired?.Invoke();   //발사 알림 (광기의 마법서)
             }
             attackTimer = 0f;
         }
@@ -99,6 +139,12 @@ public class AllyUnit : MonoBehaviour
 
         float totalPower = attackPower + upgradePower;          // 총 데미지 계산
         projectile.SetTarget(target, unitType, totalPower, criticalChance, criticalMultiplier);
+
+        projectile.ownerUnit = this; // 탄의 주인 설정 (굶줄인 검)
+
+        projectile.ignoreType = ignoreTypeForDamage; // 아이템 평등의 저울 관련 추가
+
+        projectile.targetRandomAll = this.targetRandom; // 랜덤 타겟/ 무한 사거리 적용 (혼돈의 수정)
     }
 
     private readonly Dictionary<object, BufferUnit.BuffData> _buffs = new();
@@ -119,6 +165,8 @@ public class AllyUnit : MonoBehaviour
     {
         if (activeBuffs.ContainsKey(buffer))
         {
+            if (blockBufferBuffs) return; // 부서진 성배 관련 추가
+
             BufferUnit.BuffData data = activeBuffs[buffer];
             upgradePower -= attackPower * (data.powerMultiplier - 1f);
             attackInterval /= data.attackSpeedMultiplier;
@@ -137,5 +185,24 @@ public class AllyUnit : MonoBehaviour
             Debug.Log("Joker Unit clicked and removed!");
             Destroy(gameObject);
         }
+    }
+
+    public void FreezeFor(float seconds) // 유닛 정지 (광기의 마법서)
+    {
+        isFrozen = true;
+        // 중첩 시 더 긴 시간 우선
+        freezeTimer = Mathf.Max(freezeTimer, seconds);
+    }
+
+    public void SetBlockBufferBuffs(bool block) // 버프 차단 (부서진 성배)
+    {
+        blockBufferBuffs = block;
+        if (block) ClearActiveBufferBuffs();
+    }
+
+    public void ClearActiveBufferBuffs() // 현재 적용중인 버프 제거 (부서진 성배)
+    {
+        var list = new List<BufferUnit>(activeBuffs.Keys);
+        foreach (var b in list) RemoveBuffFrom(b);
     }
 }

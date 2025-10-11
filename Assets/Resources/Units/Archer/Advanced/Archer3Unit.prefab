@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 7851066707335086379}
   - component: {fileID: 201216890384898021}
   - component: {fileID: 1870945929044715325}
+  - component: {fileID: -8885438661926547739}
   m_Layer: 0
   m_Name: Archer3Unit
   m_TagString: Untagged
@@ -178,11 +179,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 0
+  unitGrade: 0
   attackRange: 5
   attackInterval: 1.5
   attackPower: 50
+  upgradeLevel: 0
+  upgradePower: 0
+  TotalAttackPower: 0
+  criticalChance: 0
+  criticalMultiplier: 0
   projectilePrefab: {fileID: 5536264141123835531, guid: c2e70c64fbe76ff409779a73fc18ccbf, type: 3}
   firePoint: {fileID: 842664246915605908}
+  aoeEffectPrefab: {fileID: 0}
+  ignoreTypeForDamage: 0
+  blockBufferBuffs: 0
+  targetRandom: 0
 --- !u!114 &201216890384898021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,8 +214,8 @@ MonoBehaviour:
     gradeName: 
     attackPower: 0
     attackRange: 0
-    attackCooldown: 0
-    critRate: 0
+    attackInterval: 0
+    criticalChance: 0
     sellGold: 0
     isBuffer: 0
     buffType: 0
@@ -213,6 +224,12 @@ MonoBehaviour:
     prefabPath: 
     posX: 0
     posY: 0
+    canMerge: 0
+    UIPath: 
+    criticalMultiplier: 0
+    upgradeLevel: 0
+    upgradePower: 0
+    TotalAttackPower: 0
   unitID: 
   unitName: 
   unitClass: 0
@@ -220,8 +237,8 @@ MonoBehaviour:
   gradeName: 
   attackPower: 0
   attackRange: 0
-  attackCooldown: 0
-  critRate: 0
+  attackInterval: 0
+  criticalChance: 0
   sellGold: 0
   isBuffer: 0
   buffType: 0
@@ -230,6 +247,12 @@ MonoBehaviour:
   prefabPath: 
   posX: 0
   posY: 0
+  canMerge: 0
+  UIPath: 
+  criticalMultiplier: 0
+  upgradeLevel: 0
+  upgradePower: 0
+  TotalAttackPower: 0
 --- !u!114 &1870945929044715325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,3 +266,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTile: {fileID: 4831977615079914286, guid: 674fffadf6414a0499890b9289150a0d, type: 3}
+--- !u!114 &-8885438661926547739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843110344384958407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2932208a14958d408ee7f5afb993b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  badgeResourcePath: Item/Item_UI/ItemBadge
+  iconResourceRoot: Item/Item_png
+  worldOffset: {x: 0.3, y: -0.3, z: -1}
+  iconSortingOrder: 101
+  iconSortingLayer: Default
+  iconLocalPos: {x: 0, y: 0, z: 0}
+  iconLocalScale: {x: 0.3, y: 0.3, z: 0.3}

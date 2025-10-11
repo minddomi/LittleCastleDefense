@@ -27,6 +27,7 @@ public class EnemyUnit : MonoBehaviour
 
     private float maxHealth; // UI 갱신용
 
+    public static event System.Action<AllyUnit> OnEnemyKilledBy; // 굶줄인 검
 
     // Start is called before the first frame update
     void Start()
@@ -131,6 +132,8 @@ public class EnemyUnit : MonoBehaviour
 
         if (healthBarInstance != null)
             Destroy(healthBarInstance.gameObject);
+
+        OnEnemyKilledBy?.Invoke(killer); // 막타 유닛 알림
 
         Destroy(gameObject);
     }

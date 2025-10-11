@@ -14,6 +14,10 @@ public class UnitInfoManager : MonoBehaviour
     public UnitSeller unitSeller;
     public EquipSlot equipSlot;
 
+    public ItemRemover itemRemover;
+
+    private UnitStatus currentTarget;
+
     private void Awake()
     {
         Instance = this;
@@ -44,7 +48,10 @@ public class UnitInfoManager : MonoBehaviour
 
         unitSeller.SetTarget(status);
         equipSlot.SetTarget(status);
-       
+
         infoPanel.SetActive(true);
+
+        itemRemover.SetTarget(status);
     }
+
 }

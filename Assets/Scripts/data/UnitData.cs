@@ -13,8 +13,8 @@ public class UnitData
 
     public float attackPower;
     public float attackRange;
-    public float attackCooldown;
-    public float critRate;
+    public float attackInterval;
+    public float criticalChance;
 
     public int sellGold;
     public bool isBuffer;
@@ -30,4 +30,9 @@ public class UnitData
     public bool canMerge;
 
     public string UIPath;
+
+    public float criticalMultiplier;
+    public float upgradeLevel;
+    public float upgradePower;
+    public float TotalAttackPower;
 }

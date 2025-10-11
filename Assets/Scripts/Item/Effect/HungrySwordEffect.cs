@@ -5,49 +5,55 @@ using UnityEngine;
 public class HungrySwordEffect : IItemEffect
 {
     public string Id { get; }
-    private readonly Dictionary<AllyUnit, float> originalCritChance = new();
+    private const float PerKill = 0.01f; // +1%
+    private const float Cap = 0.30f; // 최대 +30%
 
-    private const float CritChancePerKill = 0.01f;
-    private const float MaxCritChanceIncrease = 0.30f;
+    // 유닛별로 이 아이템이 올려준 치확 누적치 기록
+    private readonly Dictionary<AllyUnit, float> addedCrit = new();
+    private bool subscribed = false;
 
-    public HungrySwordEffect(string id)
-    {
-        Id = id;
-    }
+    public HungrySwordEffect(string id) { Id = id; }
 
     public void Apply(AllyUnit unit)
     {
-        /*
-        if (!originalCritChance.ContainsKey(unit))
+        if (!addedCrit.ContainsKey(unit))
+            addedCrit[unit] = 0f;
+
+        // 전역 킬 이벤트 구독(한 번만)
+        if (!subscribed)
         {
-            originalCritChance[unit] = unit.critChance;
+            EnemyUnit.OnEnemyKilledBy += OnEnemyKilled;
+            subscribed = true;
+        }
+    }
+
+    private void OnEnemyKilled(AllyUnit killer)
+    {
+        if (killer == null) return;
+        if (!addedCrit.TryGetValue(killer, out float cur)) return; // 이 아이템을 장착한 유닛이 아님
+
+        float delta = Mathf.Min(PerKill, Cap - cur);
+        if (delta <= 0f) return;
+
+        killer.criticalChance += delta; // 치확 증가
+        addedCrit[killer] = cur + delta; // 누적 기록
+        // Debug.Log($"[HungrySword] {killer.name} crit +{delta:P0} (total +{addedCrit[killer]:P0})");
+    }
+
+    public void Remove(AllyUnit unit)
+    {
+        if (addedCrit.TryGetValue(unit, out float gained))
+        {
+            // 이 아이템이 올려준 만큼만 회수
+            unit.criticalChance -= gained;
+            addedCrit.Remove(unit);
         }
 
-        // 적 유닛 처치 이벤트 구독
-        Unit.OnEnemyKilled += (killedUnit, killingUnit) =>
+        // 더 이상 이 아이템을 쓰는 유닛이 없으면 구독 해제
+        if (subscribed && addedCrit.Count == 0)
         {
-            // 이 효과가 적용된 유닛이 막타를 쳤는지 확인
-            if (killingUnit == unit)
-            {
-                if (!originalCritChance.ContainsKey(unit)) return;
-
-                // 현재 증가된 치명타 확률 계산
-                float currentIncrease = unit.critChance - originalCritChance[unit];
-
-                // 최대 증가량(30%)에 도달하지 않았을 경우에만 증가
-                if (currentIncrease < MaxCritChanceIncrease)
-                {
-                    unit.critChance += CritChancePerKill;
-                    if (unit.critChance > originalCritChance[unit] + MaxCritChanceIncrease)
-                    {
-                        unit.critChance = originalCritChance[unit] + MaxCritChanceIncrease;
-                    }
-                    
-                    Debug.Log($"[HungrySword] {unit.name} 치명타 확률 증가, 현재: {unit.critChance}");
-                }
-            }
-        };
-        */
+            EnemyUnit.OnEnemyKilledBy -= OnEnemyKilled;
+            subscribed = false;
+        }
     }
-    public void Remove(AllyUnit unit) { /* TODO */ }
 }

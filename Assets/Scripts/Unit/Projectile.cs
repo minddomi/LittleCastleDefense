@@ -17,6 +17,11 @@ public class Projectile : MonoBehaviour
     private int currentBounce = 0;
     private HashSet<EnemyUnit> hitEnemies = new HashSet<EnemyUnit>();
 
+    public bool ignoreType = false; // 아이템 평등의 저울 관련 추가
+    public bool targetRandomAll = false; // 혼돈의 수정
+    public AllyUnit ownerUnit; // 굶줄인 검
+
+
     public void SetTarget(Transform enemy, AllyUnit.UnitType unitType, float attackPower, float critChance, float critMultiplier)
     {
         target = enemy;
@@ -59,7 +64,7 @@ public class Projectile : MonoBehaviour
                 hitEnemies.Add(enemy);
             }
 
-            float multiplier = GetDamageMultiplier(ownerType, enemy.size);
+            float multiplier = ignoreType ? 1f : GetDamageMultiplier(ownerType, enemy.size);
             float damage = ownerAttackPower * multiplier;
 
             bool isCritical = Random.value < critChance;
@@ -69,7 +74,7 @@ public class Projectile : MonoBehaviour
                 Debug.Log($"CRITICAL HIT! {enemy.name} took {damage}");
             }
 
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(damage, ownerUnit); // 막타유닛 저장
 
             if (ownerGrade == AllyUnit.UnitGrade.Supreme && currentBounce < maxBounces)
             {
@@ -90,6 +95,23 @@ public class Projectile : MonoBehaviour
     Transform FindNextEnemy(EnemyUnit current)
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        if (targetRandomAll) // 무작위 적 공격 (혼돈의 수정)
+        {
+            var targets = new List<Transform>();
+            foreach (GameObject go in enemies)
+            {
+                var e = go.GetComponent<EnemyUnit>();
+                if (e == null) continue;
+                if (go.transform == current.transform) continue;
+                if (hitEnemies.Contains(e)) continue;
+                targets.Add(go.transform);
+            }
+            if (targets.Count == 0) return null;
+            int idx = Random.Range(0, targets.Count);
+            return targets[idx];
+        }
+
         float minDist = Mathf.Infinity;
         Transform next = null;
 
