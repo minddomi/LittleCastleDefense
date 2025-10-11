@@ -49,4 +49,5 @@ public class HungrySwordEffect : IItemEffect
         };
         */
     }
+    public void Remove(AllyUnit unit) { /* TODO */ }
 }
