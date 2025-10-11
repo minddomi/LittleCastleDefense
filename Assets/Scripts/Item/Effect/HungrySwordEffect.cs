@@ -49,16 +49,4 @@ public class HungrySwordEffect : IItemEffect
         };
         */
     }
-
-    public void Remove(AllyUnit unit)
-    {   
-        /*
-        if (originalCritChance.TryGetValue(unit, out float baseVal))
-        {
-            unit.critChance = baseVal;
-            originalCritChance.Remove(unit);
-            Debug.Log($"[HungrySword] {unit.name} 치명타 확률 초기화, 원래 값: {baseVal}");
-        }
-        */
-    }
 }
