@@ -25,6 +25,26 @@ public class ItemEffectsManager : MonoBehaviour
         Register(new MadnessTomeEffect("MadnessTome"));
     }
 
+    private void Start()
+    {
+        // 씬 내 모든 유닛을 순회하면서 강화 이벤트 구독
+        foreach (var status in FindObjectsOfType<UnitStatus>())
+        {
+            status.OnUpgraded -= HandleUpgrade;
+            status.OnUpgraded += HandleUpgrade;
+        }
+    }
+
+    private void HandleUpgrade(UnitStatus status)
+    {
+        if (status == null) return;
+        var unit = status.GetComponent<AllyUnit>();
+        if (unit == null) return;
+
+        Debug.Log($"[ItemEffectsManager] {status.name} 강화 감지 → 아이템 효과 재적용");
+        Sync(unit, status); // 자동 Remove + Apply
+    }
+
     private void Register(IItemEffect effect)
     {
         if (!registry.ContainsKey(effect.Id))

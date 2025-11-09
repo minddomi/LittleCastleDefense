@@ -34,4 +34,13 @@ public class RoundTimer : MonoBehaviour
         timeText.text = $"Time: {timeLeft}";
         roundText.text = $"Round: {currentRound}/{maxRounds}";
     }
+
+    public string GetFormattedTime()
+    {
+        float totalSeconds = (currentRound - 1) * roundDuration + elapsedTime;
+        int minutes = Mathf.FloorToInt(totalSeconds / 60);
+        int seconds = Mathf.FloorToInt(totalSeconds % 60);
+        return $"{minutes:00}:{seconds:00}";
+    }
+
 }

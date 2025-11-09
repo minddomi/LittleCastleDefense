@@ -1,32 +1,32 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitSpawner : MonoBehaviour
 {
-    public void SpawnUnit(string unitID)
+    public UnitStatus SpawnUnit(string unitID)
     {
-        // 0) À¯È¿¼º Ã¼Å©
+        // 0) ìœ íš¨ì„± ì²´í¬
         if (string.IsNullOrEmpty(unitID))
         {
-            Debug.LogWarning("[·£´ı À¯´Ö ¼ÒÈ¯ ½ÇÆĞ] unitID°¡ null ¶Ç´Â ºñ¾î ÀÖÀ½");
-            return;
+            Debug.LogWarning("[ëœë¤ ìœ ë‹› ì†Œí™˜ ì‹¤íŒ¨] unitIDê°€ null ë˜ëŠ” ë¹„ì–´ ìˆìŒ");
+            return null;
         }
 
-        // 1) ID·Î UnitData °¡Á®¿À±â
+        // 1) IDë¡œ UnitData ê°€ì ¸ì˜¤ê¸°
         if (!UnitDataLoader.Instance.unitDataMap.TryGetValue(unitID, out UnitData unitdata))
         {
-            Debug.LogWarning($"[À¯´Ö µ¥ÀÌÅÍ ¾øÀ½] unitID: {unitID}");
-            return;
+            Debug.LogWarning($"[ìœ ë‹› ë°ì´í„° ì—†ìŒ] unitID: {unitID}");
+            return null;
         }
 
-        // 2) ¼ÒÈ¯ ºñ¿ë Â÷°¨ (½ÇÆĞ ½Ã Áß´Ü)
+        // 2) ì†Œí™˜ ë¹„ìš© ì°¨ê° (ì‹¤íŒ¨ ì‹œ ì¤‘ë‹¨)
         if (!ResourceManager.Instance.TryUseResource(50))
         {
-            return;
+            return null;
         }
 
-        // 3) ¹èÄ¡ °¡´ÉÇÑ Å¸ÀÏ ¼öÁı (ºñ¾î ÀÖ°í && Â÷´Ü ¾Æ´Ô)
+        // 3) ë°°ì¹˜ ê°€ëŠ¥í•œ íƒ€ì¼ ìˆ˜ì§‘ (ë¹„ì–´ ìˆê³  && ì°¨ë‹¨ ì•„ë‹˜)
         Tile[] tiles = FindObjectsOfType<Tile>();
         List<Tile> candidates = new List<Tile>();
         foreach (var t in tiles)
@@ -36,36 +36,38 @@ public class UnitSpawner : MonoBehaviour
 
         if (candidates.Count == 0)
         {
-            Debug.Log("[½ºÆù] ¹èÄ¡ °¡´ÉÇÑ Å¸ÀÏÀÌ ¾ø½À´Ï´Ù.");
-            return;
+            Debug.Log("[ìŠ¤í°] ë°°ì¹˜ ê°€ëŠ¥í•œ íƒ€ì¼ì´ ì—†ìŠµë‹ˆë‹¤.");
+            return null;
         }
 
-        // 4) ÇÁ¸®ÆÕ ·Îµå
+        // 4) í”„ë¦¬íŒ¹ ë¡œë“œ
         string prefabPath = unitdata.prefabPath;
         GameObject prefab = Resources.Load<GameObject>(prefabPath);
         if (prefab == null)
         {
-            Debug.LogError($"[ÇÁ¸®ÆÕ ·Îµù ½ÇÆĞ] °æ·Î: {prefabPath}");
-            return;
+            Debug.LogError($"[í”„ë¦¬íŒ¹ ë¡œë”© ì‹¤íŒ¨] ê²½ë¡œ: {prefabPath}");
+            return null;
         }
 
-        // 5) ·£´ı Å¸ÀÏ ¼±ÅÃ
+        // 5) ëœë¤ íƒ€ì¼ ì„ íƒ
         int idx = Random.Range(0, candidates.Count);
         Tile randomTile = candidates[idx];
 
-        // 6) ½ºÆù (Z¸¦ -1·Î ³»·Á¼­ °ãÄ§ ¹æÁö)
+        // 6) ìŠ¤í° (Zë¥¼ -1ë¡œ ë‚´ë ¤ì„œ ê²¹ì¹¨ ë°©ì§€)
         Vector3 spawnPos = new Vector3(randomTile.gridPosition.x, randomTile.gridPosition.y, -1f);
         GameObject unit = Instantiate(prefab, spawnPos, Quaternion.identity);
 
-        // 7) À¯´Ö ÃÊ±âÈ­
-        UnitStatus status = unit.GetComponent<UnitStatus>();
-        if (status != null)
+        // 7) ìœ ë‹› ì´ˆê¸°í™”
+        UnitStatus unitStatus = unit.GetComponent<UnitStatus>();
+        if (unitStatus != null)
         {
-            status.Initialize(unitdata, randomTile.gridPosition);
-            // Debug.Log($"[À¯´Ö Á¤º¸] {status.unitName} À§Ä¡: ({status.posX}, {status.posY})");
+            unitStatus.Initialize(unitdata, randomTile.gridPosition);
+            // Debug.Log($"[ìœ ë‹› ì •ë³´] {status.unitName} ìœ„ì¹˜: ({status.posX}, {status.posY})");
         }
 
-        // 8) Å¸ÀÏ Á¡À¯ Ã³¸®(³»ºÎ¿¡¼­ isOccupied=true / currentUnit=unit Ã³¸®)
+        // 8) íƒ€ì¼ ì ìœ  ì²˜ë¦¬(ë‚´ë¶€ì—ì„œ isOccupied=true / currentUnit=unit ì²˜ë¦¬)
         randomTile.SetCurrentUnit(unit);
+
+        return unitStatus;
     }
 }

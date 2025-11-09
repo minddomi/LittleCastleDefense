@@ -1,5 +1,5 @@
 ﻿unitID,unitName,class,grade,gradeName,attackPower,attackRange,attackInterval,criticalChance,sellGold,isBuffer,buffType,isEquipItem,equippedItemID,prefabPath,posX,posY,UIPath,canMerge,criticalMultiplier,upgradeLevel,upgradePower,TotalAttackPower
-Archer1,궁수1,Archer,Basic,초급,15,5,1.5,1,20,FALSE,None,FALSE,None,Units/Archer/Basic/Archer1Unit,0,0,Units_UI/Archer/Archer1_UI,TRUE,3,0,0,0
+Archer1,궁수1,Archer,Basic,초급,15,5,1.5,0.01,20,FALSE,None,FALSE,None,Units/Archer/Basic/Archer1Unit,0,0,Units_UI/Archer/Archer1_UI,TRUE,3,0,0,0
 Archer2,궁수2,Archer,Intermediate,중급,20,5,1.5,0.01,25,FALSE,None,FALSE,None,Units/Archer/Intermediate/Archer2Unit,0,0,Units_UI/Archer/Archer2_UI,TRUE,3,0,0,0
 Archer3,궁수3,Archer,Advanced,고급,25,5,1.5,0.01,35,FALSE,None,FALSE,None,Units/Archer/Advanced/Archer3Unit,0,0,Units_UI/Archer/Archer3_UI,TRUE,3,0,0,0
 Archer4,궁수4,Archer,Epic,서사,35,5,1.5,0.01,40,FALSE,None,FALSE,None,Units/Archer/Epic/Archer4Unit,0,0,Units_UI/Archer/Archer4_UI,TRUE,3,0,0,0

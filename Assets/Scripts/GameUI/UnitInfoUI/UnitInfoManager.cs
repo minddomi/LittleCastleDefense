@@ -28,6 +28,7 @@ public class UnitInfoManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+
             if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) return;
 
             Vector2 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -38,13 +39,21 @@ public class UnitInfoManager : MonoBehaviour
                 infoPanel.SetActive(false);
             }
         }
+
+        if (infoPanel.activeSelf && currentTarget != null)
+        {
+            attackText.text = "Attack: " + currentTarget.TotalAttackPower.ToString("F1");
+        }
+
     }
 
     public void ShowInfo(UnitStatus status)
     {
+        currentTarget = status;
+
         classText.text = "Class: " + status.unitClass;
         gradeText.text = "Grade: " + status.gradeName;
-        attackText.text = "Attack: " + status.attackPower.ToString();
+        attackText.text = "Attack: " + status.TotalAttackPower.ToString("F1");
 
         unitSeller.SetTarget(status);
         equipSlot.SetTarget(status);

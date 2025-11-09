@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class UnitStatus : MonoBehaviour
 {
+    public event System.Action<UnitStatus> OnUpgraded;
+
+
     public UnitData unitData;
 
     public string unitID;
@@ -69,5 +72,15 @@ public class UnitStatus : MonoBehaviour
         upgradeLevel = data.upgradeLevel;
         upgradePower = data.upgradePower;
         TotalAttackPower = data.TotalAttackPower;
+
+        if (GlobalUpgradeManager.Instance != null)
+            GlobalUpgradeManager.Instance.RegisterUnit(this);
+    }
+
+    public void ApplyUpgrade(float multiplier)
+    {
+        attackPower *= multiplier;
+
+        OnUpgraded?.Invoke(this); // 강화 완료 알림
     }
 }

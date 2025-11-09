@@ -36,8 +36,22 @@ public class EnemyUnit : MonoBehaviour
 
         if (healthBarPrefab != null)
         {
+            //GameObject hb = Instantiate(healthBarPrefab, Vector3.zero, Quaternion.identity);
+            //hb.transform.SetParent(GameObject.Find("Canvas").transform, false);
+
+            //  HP바 컨테이너 자동 탐색 (없으면 Canvas 사용)
+            Transform parent = GameObject.Find("HPBarContainer")?.transform;
+            if (parent == null)
+            {
+                Canvas canvas = FindObjectOfType<Canvas>();
+                if (canvas != null)
+                    parent = canvas.transform;
+            }
+
+            //  HP바 생성 및 부모 설정
             GameObject hb = Instantiate(healthBarPrefab, Vector3.zero, Quaternion.identity);
-            hb.transform.SetParent(GameObject.Find("Canvas").transform, false);
+            if (parent != null)
+                hb.transform.SetParent(parent, false);
 
             healthBarInstance = hb.GetComponent<EnemyHealthBar>();
             healthBarInstance.enemyTransform = this.transform;

@@ -14,6 +14,13 @@ public class Tile : MonoBehaviour
     public bool isBlocked = false;     // 방해물로 인해 일시적으로 배치 금지
     public bool IsPlaceable => !isOccupied && !isBlocked;
 
+    private void Awake()
+    {
+        // 유닛이 없으면 자동으로 점유 해제
+        if (currentUnit == null)
+            isOccupied = false;
+    }
+
 
     public void SetCurrentUnit(GameObject unit)
     {

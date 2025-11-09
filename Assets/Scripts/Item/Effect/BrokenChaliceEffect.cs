@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class BrokenChaliceEffect : IItemEffect
 {
@@ -39,7 +40,33 @@ public class BrokenChaliceEffect : IItemEffect
         // 버퍼 버프 차단
         unit.SetBlockBufferBuffs(true);
 
+        //  강화 감지용 코루틴 시작 (ChaosCrystalEffect 방식)
+        unit.StartCoroutine(TrackAttackChange(unit, status));
+
         Debug.Log($"[BrokenChalice] {unit.name}: +50% of base({baseAtk}), crit=0, block buffs ON");
+    }
+
+    //  강화 시 공격력 자동 보정 코루틴
+    private IEnumerator TrackAttackChange(AllyUnit unit, UnitStatus status)
+    {
+        float lastAtk = status.attackPower;
+        while (applied.Contains(unit))
+        {
+            yield return new WaitForSeconds(0.5f);
+
+            if (Mathf.Abs(status.attackPower - lastAtk) > 0.01f)
+            {
+                if (atkBonus.TryGetValue(unit, out float prevBonus))
+                    unit.upgradePower -= prevBonus;
+
+                float newBonus = status.attackPower * 0.5f;
+                atkBonus[unit] = newBonus;
+                unit.upgradePower += newBonus;
+
+                lastAtk = status.attackPower;
+                Debug.Log($"[BrokenChalice] {unit.name}: 강화 감지 → 보너스 갱신 ({newBonus:F1})");
+            }
+        }
     }
 
     public void Remove(AllyUnit unit)

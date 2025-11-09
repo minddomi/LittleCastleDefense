@@ -32,7 +32,35 @@ public class ChaosCrystalEffect : IItemEffect
 
         unit.targetRandom = true;
 
+        unit.StartCoroutine(TrackAttackChange(unit, status));
+
         Debug.Log($"[ChaosCrystal] {unit.name}: +20% ATK, random targeting ON, infinite range");
+
+  
+    }
+
+    private IEnumerator TrackAttackChange(AllyUnit unit, UnitStatus status)
+    {
+        float lastAtk = status.attackPower;
+        while (applied.Contains(unit))
+        {
+            yield return new WaitForSeconds(0.5f); // 0.5초마다 확인
+
+            if (Mathf.Abs(status.attackPower - lastAtk) > 0.01f)
+            {
+                // 기존 보너스 제거
+                if (atkBonus.TryGetValue(unit, out float prevBonus))
+                    unit.upgradePower -= prevBonus;
+
+                // 새 공격력 기준으로 재계산
+                float newBonus = status.attackPower * 0.2f;
+                atkBonus[unit] = newBonus;
+                unit.upgradePower += newBonus;
+
+                lastAtk = status.attackPower;
+                Debug.Log($"[ChaosCrystal] {unit.name}: 강화 감지 → 보너스 갱신 ({newBonus:F1})");
+            }
+        }
     }
 
     public void Remove(AllyUnit unit)

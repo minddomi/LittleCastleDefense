@@ -86,6 +86,8 @@ public class AllyUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        attackPower = unitStatus.attackPower;
+
         if (ItemEffectsManager.Instance != null) // 아이템 관련 추가
         {
             ItemEffectsManager.Instance.Sync(this, unitStatus);
@@ -100,6 +102,8 @@ public class AllyUnit : MonoBehaviour
 
         attackTimer += Time.deltaTime;
         TotalAttackPower = attackPower + upgradePower;
+
+        unitStatus.TotalAttackPower = TotalAttackPower; // UnitStatus와 동기화
 
         if (attackTimer >= attackInterval)
         {
@@ -179,12 +183,12 @@ public class AllyUnit : MonoBehaviour
 
     void OnMouseDown()
     {
-        // 조커 유닛만 클릭 시 삭제
-        if (unitType == UnitType.Joker)
-        {
-            Debug.Log("Joker Unit clicked and removed!");
-            Destroy(gameObject);
-        }
+        //// 조커 유닛만 클릭 시 삭제
+        //if (unitType == UnitType.Joker)
+        //{ 
+        //    Debug.Log("Joker Unit clicked and removed!");
+        //    Destroy(gameObject);
+        //}
     }
 
     public void FreezeFor(float seconds) // 유닛 정지 (광기의 마법서)
