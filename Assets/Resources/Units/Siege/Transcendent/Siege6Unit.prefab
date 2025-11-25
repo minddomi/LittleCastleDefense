@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6681582096858209886
+--- !u!1 &2072429128333789988
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6791851309068189297}
+  - component: {fileID: 445194548420597208}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -16,13 +16,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6791851309068189297
+--- !u!4 &445194548420597208
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6681582096858209886}
+  m_GameObject: {fileID: 2072429128333789988}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -41,13 +41,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1671449466206724212}
   - component: {fileID: 8013590433335322588}
-  - component: {fileID: -6795675467345815249}
-  - component: {fileID: 8451506836333203423}
-  - component: {fileID: 5138865846043645491}
-  - component: {fileID: 2723744097401317939}
-  - component: {fileID: -1003952863479519060}
+  - component: {fileID: -8580996832260673206}
+  - component: {fileID: 1757567837849556502}
+  - component: {fileID: 4788757594674681299}
+  - component: {fileID: -4860591224402162280}
+  - component: {fileID: 3441711051492815127}
   m_Layer: 0
-  m_Name: Mage6Unit
+  m_Name: Siege6Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6791851309068189297}
+  - {fileID: 445194548420597208}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8013590433335322588
@@ -110,7 +110,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8f498de3e81a90f4e983ceb323ea0b4a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1478175a331cf0540a3274dbe719a78b, type: 3}
   m_Color: {r: 1, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,7 +121,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &-6795675467345815249
+--- !u!61 &-8580996832260673206
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,7 +166,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.03, y: 4.03}
   m_EdgeRadius: 0
---- !u!114 &8451506836333203423
+--- !u!114 &1757567837849556502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,8 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e223336816b56498634f8fc32da524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitType: 1
-  unitGrade: 0
+  unitType: 2
+  unitGrade: 5
   attackRange: 5
   attackInterval: 1.5
   attackPower: 50
@@ -189,12 +189,12 @@ MonoBehaviour:
   criticalChance: 0
   criticalMultiplier: 0
   projectilePrefab: {fileID: 5536264141123835531, guid: c2e70c64fbe76ff409779a73fc18ccbf, type: 3}
-  firePoint: {fileID: 6791851309068189297}
+  firePoint: {fileID: 445194548420597208}
   aoeEffectPrefab: {fileID: 0}
   ignoreTypeForDamage: 0
   blockBufferBuffs: 0
   targetRandom: 0
---- !u!114 &5138865846043645491
+--- !u!114 &4788757594674681299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,7 +233,7 @@ MonoBehaviour:
   unitID: 
   unitName: 
   unitClass: 0
-  unitGrade: 0
+  unitGrade: 4
   gradeName: 
   attackPower: 0
   attackRange: 0
@@ -253,7 +253,7 @@ MonoBehaviour:
   upgradeLevel: 0
   upgradePower: 0
   TotalAttackPower: 0
---- !u!114 &2723744097401317939
+--- !u!114 &-4860591224402162280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTile: {fileID: 4831977615079914286, guid: 674fffadf6414a0499890b9289150a0d, type: 3}
---- !u!114 &-1003952863479519060
+--- !u!114 &3441711051492815127
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

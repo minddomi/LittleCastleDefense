@@ -18,6 +18,8 @@ public class UnitInfoManager : MonoBehaviour
 
     private UnitStatus currentTarget;
 
+    public GameObject sellButton;
+
     private void Awake()
     {
         Instance = this;
@@ -57,10 +59,17 @@ public class UnitInfoManager : MonoBehaviour
 
         unitSeller.SetTarget(status);
         equipSlot.SetTarget(status);
+        itemRemover.SetTarget(status);
+
+        bool isBlocked =
+            status.unitClass == UnitClass.Joker ||
+            status.unitGrade == UnitGrade.Transcendent ||
+            status.unitGrade == UnitGrade.Supreme;
+
+        sellButton.SetActive(!isBlocked);
+
 
         infoPanel.SetActive(true);
-
-        itemRemover.SetTarget(status);
     }
 
 }
