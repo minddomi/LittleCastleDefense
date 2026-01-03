@@ -10,6 +10,7 @@ public class UnitInfoManager : MonoBehaviour
     public TMPro.TextMeshProUGUI classText;
     public TMPro.TextMeshProUGUI gradeText;
     public TMPro.TextMeshProUGUI attackText;
+    public TMPro.TextMeshProUGUI sellButtonText;
 
     public UnitSeller unitSeller;
     public EquipSlot equipSlot;
@@ -61,11 +62,21 @@ public class UnitInfoManager : MonoBehaviour
         equipSlot.SetTarget(status);
         itemRemover.SetTarget(status);
 
-        bool isBlocked =
-            status.unitClass == UnitClass.Joker ||
-            status.unitGrade == UnitGrade.Transcendent ||
-            status.unitGrade == UnitGrade.Supreme;
+        bool isExchange =
+            status.unitGrade == UnitGrade.Supreme ||
+            status.unitGrade == UnitGrade.Transcendent;
 
+        // 버튼 텍스트 변경
+        if (sellButtonText != null)
+        {
+            sellButtonText.text = isExchange ? "교환" : "판매";
+        }
+
+        bool isBlocked =
+            status.unitClass == UnitClass.Joker;
+            //status.unitGrade == UnitGrade.Transcendent ||
+            //status.unitGrade == UnitGrade.Supreme;
+        
         sellButton.SetActive(!isBlocked);
 
 

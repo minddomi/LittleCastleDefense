@@ -952,6 +952,7 @@ MonoBehaviour:
   classText: {fileID: 458397316}
   gradeText: {fileID: 415810536}
   attackText: {fileID: 2098374097}
+  sellButtonText: {fileID: 805268933}
   unitSeller: {fileID: 2032214389}
   equipSlot: {fileID: 1521676375}
   itemRemover: {fileID: 2060334971}
@@ -15187,6 +15188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d18387b965e35458cd27e0538bab70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 1310875220}
 --- !u!1 &2046581984
 GameObject:
   m_ObjectHideFlags: 0
