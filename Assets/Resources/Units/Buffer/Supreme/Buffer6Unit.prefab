@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: -8580996832260673206}
   - component: {fileID: -2675810225621425530}
   - component: {fileID: 7139752472647320399}
+  - component: {fileID: 5700027561126113980}
   m_Layer: 0
   m_Name: Buffer6Unit
   m_TagString: Untagged
@@ -184,8 +185,8 @@ MonoBehaviour:
     gradeName: 
     attackPower: 0
     attackRange: 0
-    attackCooldown: 0
-    critRate: 0
+    attackInterval: 0
+    criticalChance: 0
     sellGold: 0
     isBuffer: 0
     buffType: 0
@@ -194,15 +195,21 @@ MonoBehaviour:
     prefabPath: 
     posX: 0
     posY: 0
+    canMerge: 0
+    UIPath: 
+    criticalMultiplier: 0
+    upgradeLevel: 0
+    upgradePower: 0
+    TotalAttackPower: 0
   unitID: 
   unitName: 
-  unitClass: 0
-  unitGrade: 0
+  unitClass: 3
+  unitGrade: 5
   gradeName: 
   attackPower: 0
   attackRange: 0
-  attackCooldown: 0
-  critRate: 0
+  attackInterval: 0
+  criticalChance: 0
   sellGold: 0
   isBuffer: 0
   buffType: 0
@@ -211,6 +218,12 @@ MonoBehaviour:
   prefabPath: 
   posX: 0
   posY: 0
+  canMerge: 0
+  UIPath: 
+  criticalMultiplier: 0
+  upgradeLevel: 0
+  upgradePower: 0
+  TotalAttackPower: 0
 --- !u!114 &7139752472647320399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,3 +237,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTile: {fileID: 4831977615079914286, guid: 674fffadf6414a0499890b9289150a0d, type: 3}
+--- !u!114 &5700027561126113980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843110344384958407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c4045ef2b2d6a42996ca58a618df5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freezeDuration: 3

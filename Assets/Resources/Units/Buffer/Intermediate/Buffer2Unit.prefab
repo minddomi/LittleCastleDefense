@@ -204,8 +204,8 @@ MonoBehaviour:
     TotalAttackPower: 0
   unitID: 
   unitName: 
-  unitClass: 0
-  unitGrade: 0
+  unitClass: 3
+  unitGrade: 1
   gradeName: 
   attackPower: 0
   attackRange: 0
@@ -265,6 +265,7 @@ MonoBehaviour:
   aoeEffectPrefab: {fileID: 0}
   ignoreTypeForDamage: 0
   blockBufferBuffs: 0
+  targetRandom: 0
 --- !u!114 &-3102836457793491982
 MonoBehaviour:
   m_ObjectHideFlags: 0

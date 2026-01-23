@@ -186,8 +186,8 @@ MonoBehaviour:
     gradeName: 
     attackPower: 0
     attackRange: 0
-    attackCooldown: 0
-    critRate: 0
+    attackInterval: 0
+    criticalChance: 0
     sellGold: 0
     isBuffer: 0
     buffType: 0
@@ -197,15 +197,20 @@ MonoBehaviour:
     posX: 0
     posY: 0
     canMerge: 0
+    UIPath: 
+    criticalMultiplier: 0
+    upgradeLevel: 0
+    upgradePower: 0
+    TotalAttackPower: 0
   unitID: 
   unitName: 
-  unitClass: 0
+  unitClass: 3
   unitGrade: 0
   gradeName: 
   attackPower: 15
   attackRange: 0
-  attackCooldown: 0
-  critRate: 0
+  attackInterval: 0
+  criticalChance: 0
   sellGold: 0
   isBuffer: 0
   buffType: 0
@@ -215,6 +220,11 @@ MonoBehaviour:
   posX: 0
   posY: 0
   canMerge: 0
+  UIPath: 
+  criticalMultiplier: 0
+  upgradeLevel: 0
+  upgradePower: 0
+  TotalAttackPower: 0
 --- !u!114 &1833249635392298820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,16 +251,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 5
+  unitGrade: 0
   attackRange: 5
   attackInterval: 1.5
   attackPower: 15
   upgradeLevel: 0
   upgradePower: 0
+  TotalAttackPower: 0
   criticalChance: 0
   criticalMultiplier: 3
   projectilePrefab: {fileID: 0}
   firePoint: {fileID: 0}
   aoeEffectPrefab: {fileID: 0}
+  ignoreTypeForDamage: 0
+  blockBufferBuffs: 0
+  targetRandom: 0
 --- !u!114 &-3828770387194867724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,4 +278,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ef894b212d4464e85ad5b9e84eacc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 0
