@@ -109,6 +109,14 @@ public class EnemyUnit : MonoBehaviour
 
     private void InternalTakeDamage(float damage, AllyUnit attacker)
     {
+        // 실드가 있다면 먼저 흡수
+        if (TryGetComponent(out ShieldController shield))
+            shield.TryAbsorb(ref damage);
+
+        // 실드가 전부 막았으면 종료
+        if (damage <= 0f)
+            return;
+
         health -= damage;
         Debug.Log($"{gameObject.name} took {damage} damage. Remaining health: {health}");
 

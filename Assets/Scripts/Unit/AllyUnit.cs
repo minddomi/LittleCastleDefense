@@ -22,8 +22,8 @@ public class AllyUnit : MonoBehaviour
         Intermediate,
         Advanced,
         Epic,
-        Supreme,
-        Transcendence
+        Transcendence,
+        Supreme
     }
 
     public UnitType unitType;
