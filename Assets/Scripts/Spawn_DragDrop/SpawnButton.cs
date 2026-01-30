@@ -17,8 +17,13 @@ public class SpawnButton : MonoBehaviour
         }
 
         string unitID = idGenerator.GetRandomUnitID();
-        unitSpawner.SpawnUnit(unitID);
+        UnitStatus spawnedUnit = unitSpawner.SpawnUnit(unitID);
 
+        if (spawnedUnit != null)
+        {
+            if (UnitInfoManager.Instance != null)
+                UnitInfoManager.Instance.ShowInfo(spawnedUnit);
+        }
         EventSystem.current.SetSelectedGameObject(null);
     }
 }

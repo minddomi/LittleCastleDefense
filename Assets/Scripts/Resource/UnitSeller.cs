@@ -144,7 +144,7 @@ public class UnitSeller : MonoBehaviour
 
                 //GameLogManager.Instance.AddLog(log);
 
-                //UnitInfoManager.Instance?.ShowInfo(spawned);
+                UnitInfoManager.Instance?.ShowInfo(spawned);
             }
 
 
