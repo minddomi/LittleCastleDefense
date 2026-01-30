@@ -22,8 +22,8 @@ public class AllyUnit : MonoBehaviour
         Intermediate,
         Advanced,
         Epic,
-        Transcendence,
-        Supreme
+        Supreme,
+        Transcendence
     }
 
     public UnitType unitType;
@@ -86,6 +86,9 @@ public class AllyUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        attackPower = unitStatus.attackPower;
+
+
         if (ItemEffectsManager.Instance != null) // 아이템 관련 추가
         {
             ItemEffectsManager.Instance.Sync(this, unitStatus);
@@ -100,6 +103,8 @@ public class AllyUnit : MonoBehaviour
 
         attackTimer += Time.deltaTime;
         TotalAttackPower = attackPower + upgradePower;
+
+        unitStatus.TotalAttackPower = TotalAttackPower; // UnitStatus와 동기화
 
         if (attackTimer >= attackInterval)
         {

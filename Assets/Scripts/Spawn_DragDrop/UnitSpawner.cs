@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class UnitSpawner : MonoBehaviour
 {
-    public void SpawnUnit(string unitID)
+    public UnitStatus SpawnUnit(string unitID, int cost = 50)
     {
         // 0) 유효성 체크
         if (string.IsNullOrEmpty(unitID))
         {
             Debug.LogWarning("[랜덤 유닛 소환 실패] unitID가 null 또는 비어 있음");
-            return;
+            return null;
         }
 
         // 1) ID로 UnitData 가져오기
         if (!UnitDataLoader.Instance.unitDataMap.TryGetValue(unitID, out UnitData unitdata))
         {
             Debug.LogWarning($"[유닛 데이터 없음] unitID: {unitID}");
-            return;
+            return null;
         }
 
         // 2) 소환 비용 차감 (실패 시 중단)
         if (!ResourceManager.Instance.TryUseResource(50))
         {
-            return;
+            return null;
         }
 
         // 3) 배치 가능한 타일 수집 (비어 있고 && 차단 아님)
@@ -37,7 +37,7 @@ public class UnitSpawner : MonoBehaviour
         if (candidates.Count == 0)
         {
             Debug.Log("[스폰] 배치 가능한 타일이 없습니다.");
-            return;
+            return null;
         }
 
         // 4) 프리팹 로드
@@ -46,7 +46,7 @@ public class UnitSpawner : MonoBehaviour
         if (prefab == null)
         {
             Debug.LogError($"[프리팹 로딩 실패] 경로: {prefabPath}");
-            return;
+            return null;
         }
 
         // 5) 랜덤 타일 선택
@@ -58,14 +58,16 @@ public class UnitSpawner : MonoBehaviour
         GameObject unit = Instantiate(prefab, spawnPos, Quaternion.identity);
 
         // 7) 유닛 초기화
-        UnitStatus status = unit.GetComponent<UnitStatus>();
-        if (status != null)
+        UnitStatus unitStatus = unit.GetComponent<UnitStatus>();
+        if (unitStatus != null)
         {
-            status.Initialize(unitdata, randomTile.gridPosition);
+            unitStatus.Initialize(unitdata, randomTile.gridPosition);
             // Debug.Log($"[유닛 정보] {status.unitName} 위치: ({status.posX}, {status.posY})");
         }
 
         // 8) 타일 점유 처리(내부에서 isOccupied=true / currentUnit=unit 처리)
         randomTile.SetCurrentUnit(unit);
+
+        return unitStatus;
     }
 }
