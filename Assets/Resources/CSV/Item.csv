@@ -1,3 +1,7 @@
 ﻿itemID,prefabPath
-Item1,Item/Itme1
-Item2,Item/Itme2
+HungrySword,Item/HungrySword
+ChaosCrystal,Item/ChaosCrystal
+InfiniteBranch,Item/InfiniteBranch
+BalanceScale,Item/BalanceScale
+BrokenChalice,Item/BrokenChalice
+MadnessTome,Item/MadnessTome

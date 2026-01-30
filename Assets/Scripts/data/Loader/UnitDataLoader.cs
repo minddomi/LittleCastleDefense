@@ -50,8 +50,8 @@ public class UnitDataLoader : MonoBehaviour
 
             unit.attackPower = float.Parse(values[5]);
             unit.attackRange = float.Parse(values[6]);
-            unit.attackCooldown = float.Parse(values[7]);
-            unit.critRate = float.Parse(values[8]);
+            unit.attackInterval = float.Parse(values[7]);
+            unit.criticalChance = float.Parse(values[8]);
 
             unit.sellGold = int.Parse(values[9]);
 
@@ -70,8 +70,13 @@ public class UnitDataLoader : MonoBehaviour
 
             unit.posX = float.Parse(values[15]);
             unit.posY = float.Parse(values[16]);
-
+            unit.UIPath = values[17];
             unit.canMerge = true;
+
+            unit.criticalMultiplier = float.Parse(values[19]);
+            unit.upgradeLevel = float.Parse(values[20]);
+            unit.upgradePower = float.Parse(values[21]);
+            unit.TotalAttackPower = float.Parse(values[22]);
 
             unitDataMap[unit.unitID] = unit;
         }

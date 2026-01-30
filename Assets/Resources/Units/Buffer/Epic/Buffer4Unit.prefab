@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: -6686477960800204844}
   - component: {fileID: -155360187827886898}
   - component: {fileID: 4811022628533184327}
+  - component: {fileID: -4331767314236606311}
+  - component: {fileID: -8906695382697129869}
   m_Layer: 0
   m_Name: Buffer4Unit
   m_TagString: Untagged
@@ -184,8 +186,8 @@ MonoBehaviour:
     gradeName: 
     attackPower: 0
     attackRange: 0
-    attackCooldown: 0
-    critRate: 0
+    attackInterval: 0
+    criticalChance: 0
     sellGold: 0
     isBuffer: 0
     buffType: 0
@@ -194,15 +196,21 @@ MonoBehaviour:
     prefabPath: 
     posX: 0
     posY: 0
+    canMerge: 0
+    UIPath: 
+    criticalMultiplier: 0
+    upgradeLevel: 0
+    upgradePower: 0
+    TotalAttackPower: 0
   unitID: 
   unitName: 
-  unitClass: 0
-  unitGrade: 0
+  unitClass: 3
+  unitGrade: 3
   gradeName: 
   attackPower: 0
   attackRange: 0
-  attackCooldown: 0
-  critRate: 0
+  attackInterval: 0
+  criticalChance: 0
   sellGold: 0
   isBuffer: 0
   buffType: 0
@@ -211,6 +219,12 @@ MonoBehaviour:
   prefabPath: 
   posX: 0
   posY: 0
+  canMerge: 0
+  UIPath: 
+  criticalMultiplier: 0
+  upgradeLevel: 0
+  upgradePower: 0
+  TotalAttackPower: 0
 --- !u!114 &4811022628533184327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,3 +238,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTile: {fileID: 4831977615079914286, guid: 674fffadf6414a0499890b9289150a0d, type: 3}
+--- !u!114 &-4331767314236606311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843110344384958407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e223336816b56498634f8fc32da524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitType: 0
+  unitGrade: 0
+  attackRange: 0
+  attackInterval: 0
+  attackPower: 0
+  upgradeLevel: 0
+  upgradePower: 0
+  TotalAttackPower: 0
+  criticalChance: 0
+  criticalMultiplier: 0
+  projectilePrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  aoeEffectPrefab: {fileID: 0}
+  ignoreTypeForDamage: 0
+  blockBufferBuffs: 0
+  targetRandom: 0
+--- !u!114 &-8906695382697129869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843110344384958407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5ef894b212d4464e85ad5b9e84eacc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

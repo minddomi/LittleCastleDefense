@@ -11,6 +11,10 @@ public class Tile : MonoBehaviour
     public GameObject currentUnit;
     // 현재 이 타일 위에 올라가 있는 유닛 (DragAndDrop 에서 활용)
 
+    public bool isBlocked = false;     // 방해물로 인해 일시적으로 배치 금지
+    public bool IsPlaceable => !isOccupied && !isBlocked;
+
+
     public void SetCurrentUnit(GameObject unit)
     {
         currentUnit = unit;
@@ -25,6 +29,11 @@ public class Tile : MonoBehaviour
                 status.posY = gridPosition.y;
             }
         }
+    }
+
+    public void SetBlocked(bool blocked)
+    {
+        isBlocked = blocked;
     }
 
 }
