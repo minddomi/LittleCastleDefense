@@ -127,7 +127,7 @@ public class JokerRewardUI : MonoBehaviour
     {
         if (colorRewardPanel) colorRewardPanel.SetActive(false);
         if (blackRewardPanel) blackRewardPanel.SetActive(false);
-       // AddJokerUseLog(rewardName); // 컬러/흑백 모두 로그
+        AddJokerUseLog(rewardName); // 컬러/흑백 모두 로그
     }
 
     // ----------------- 스폰 로직 -----------------
@@ -135,7 +135,7 @@ public class JokerRewardUI : MonoBehaviour
     // 아이템은 기존처럼 Resources 경로로
     private void SpawnItemByPath(string prefabPath)
     {
-        var prefab = Resources.Load<GameObject>(prefabPath); // ← 여기서 경로 틀리면 못찾음:contentReference[oaicite:1]{index=1}
+        var prefab = Resources.Load<GameObject>(prefabPath); //  여기서 경로 틀리면 못찾음:contentReference[oaicite:1]{index=1}
         if (prefab == null)
         {
             Debug.LogError($"{prefabPath} 프리팹을 찾을 수 없습니다.");
@@ -175,20 +175,20 @@ public class JokerRewardUI : MonoBehaviour
     }
 
     // ----------------- 로그 -----------------
-    //private void AddJokerUseLog(string rewardName)
-    //{
-    //    RoundTimer timer = FindObjectOfType<RoundTimer>();
-    //    string currentTime = timer != null ? timer.GetFormattedTime() : "--:--";
+    private void AddJokerUseLog(string rewardName)
+    {
+        RoundTimer timer = FindObjectOfType<RoundTimer>();
+        string currentTime = timer != null ? timer.GetFormattedTime() : "--:--";
 
-    //    string timeColor = "#BBBBBB";
-    //    string jokerColor = (currentJokerType == "흑백 조커") ? "#AAAAAA" : "#FF66FF";
-    //    string rewardColor = "#77DDFF";
+        string timeColor = "#BBBBBB";
+        string jokerColor = (currentJokerType == "흑백 조커") ? "#AAAAAA" : "#FF66FF";
+        string rewardColor = "#77DDFF";
 
-    //    string logMsg =
-    //        $"<color={timeColor}>[{currentTime}]</color> " +
-    //        $"<color={jokerColor}>{currentJokerType}</color> 사용 " +
-    //        $"(<color={rewardColor}>{rewardName} 획득</color>)";
+        string logMsg =
+            $"<color={timeColor}>[{currentTime}]</color> " +
+            $"<color={jokerColor}>{currentJokerType}</color> 사용 " +
+            $"(<color={rewardColor}>{rewardName} 획득</color>)";
 
-    //    GameLogManager.Instance?.AddLog(logMsg);
-    //}
+        GameLogManager.Instance?.AddLog(logMsg);
+    }
 }

@@ -19,28 +19,26 @@ public class UnitSeller : MonoBehaviour
         int sellGold = target.sellGold;
         ResourceManager.Instance.AddResource(sellGold);
 
-        //RoundTimer timer = FindObjectOfType<RoundTimer>();
-        //string currentTime = timer != null ? timer.GetFormattedTime() : "--:--";
+        RoundTimer timer = FindObjectOfType<RoundTimer>();
+        string currentTime = timer != null ? timer.GetFormattedTime() : "--:--";
         string gradeName = target.gradeName;
 
         bool blockLog = (gradeName == "ÃÖ°í" || gradeName == "ÃÊ¿ù");
 
         if (!blockLog)
         {
-            //string unitName = GetKoreanName(target.unitClass);
+            string unitName = GetKoreanName(target.unitClass);
 
-            //string timeColor = "#BBBBBB";
-            //string gainColor = "#66FF66";
-            //string gradeColor = GetGradeColor(gradeName);
-            //string whiteColor = "#FFFFFF";
+            string timeColor = "#BBBBBB";
 
-            //string logMessage =
-            //    $"<color={timeColor}>[{currentTime}]</color> " +
-            //    $"À¯´Ö ÆÇ¸Å(<color={gainColor}>ÀÚ¿ø È¹µæ +{sellGold}</color>): " +
-            //    $"<color={gradeColor}>{gradeName}</color> µî±Þ " +
-            //    $"<color={whiteColor}>{unitName}</color> À¯´Ö ÆÇ¸Å";
+            // ·Î±× Á¶¸³
+            string logMessage =
+                $"<color={timeColor}>[{currentTime}]</color> " +
+                $"À¯´Ö ÆÇ¸Å(ÀÚ¿ø È¹µæ +{sellGold}): " +
+                $"{gradeName} µî±Þ {unitName} À¯´Ö ÆÇ¸Å";
 
-            //GameLogManager.Instance.AddLog(logMessage);
+            GameLogManager.Instance.AddLog(logMessage);
+
         }
 
         Debug.Log($"{target.unitName} ÆÇ¸Å. °ñµå +{sellGold}");
@@ -135,14 +133,14 @@ public class UnitSeller : MonoBehaviour
 
             if (spawned != null)
             {
-                //string afterUnitID = spawned.unitID; // ¿¹: "Mage6"
+                string afterUnitID = spawned.unitID; // ¿¹: "Mage6"
+                string timeColor = "#BBBBBB";
+                string log =
+                    $"<color={timeColor}>[{currentTime}]</color> " +
+                    $"{beforeUnitID} ¡æ {afterUnitID} " +
+                    $"(ÀÚ¿ø -{totalCost})";
 
-                //string log =
-                //    $"[{currentTime}] " +
-                //    $"{beforeUnitID} ¡æ {afterUnitID} " +
-                //    $"(ÀÚ¿ø -{totalCost})";
-
-                //GameLogManager.Instance.AddLog(log);
+                GameLogManager.Instance.AddLog(log);
 
                 UnitInfoManager.Instance?.ShowInfo(spawned);
             }

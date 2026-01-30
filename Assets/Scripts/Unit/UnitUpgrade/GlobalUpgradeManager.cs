@@ -98,19 +98,20 @@ public class GlobalUpgradeManager : MonoBehaviour
                 unit.attackPower += atkIncrease;
         }
 
-        // 로그 출력
-        //RoundTimer timer = FindObjectOfType<RoundTimer>();
-        //string currentTime = timer != null ? timer.GetFormattedTime() : "--:--";
-        //string unitName = GetKoreanName(type);
+        //로그 출력
+        RoundTimer timer = FindObjectOfType<RoundTimer>();
+        string currentTime = timer != null ? timer.GetFormattedTime() : "--:--";
+        string unitName = GetKoreanName(type);
 
-        //string logMsg =
-        //    $"<color=#BBBBBB>[{currentTime}]</color> " +
-        //    $"유닛 종족 강화(<color=#FF7777>자원 소비 -{intCost}</color>): " +
-        //    $"<color=#77DDFF>{unitName}</color> 유닛 강화 " +
-        //    $"(<color=#77DDFF>{level - 1}</color> → <color=#77DDFF>{level}</color>, " +
-        //    $"누적 공격력 <color=#77DDFF>+{bonus}</color>)";
+        string logMsg =
+            $"<color=#BBBBBB>[{currentTime}]</color> " +
+            $"유닛 종족 강화(자원 소비 -{intCost}): " +
+            $"{unitName} 유닛 강화 " +
+            $"({level - 1} → {level}, " +
+            $"누적 공격력 +{bonus})";
 
-        //GameLogManager.Instance.AddLog(logMsg);
+
+        GameLogManager.Instance.AddLog(logMsg);
 
         // 다음 단계 비용 증가
         cost += costIncrease;

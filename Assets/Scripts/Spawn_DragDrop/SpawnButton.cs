@@ -21,6 +21,26 @@ public class SpawnButton : MonoBehaviour
 
         if (spawnedUnit != null)
         {
+            // ½Ã°£
+            RoundTimer timer = FindObjectOfType<RoundTimer>();
+            string currentTime = timer != null ? timer.GetFormattedTime() : "--:--";
+
+            // À¯´Ö Á¤º¸
+            string gradeName = spawnedUnit.gradeName;
+            string unitName = spawnedUnit.unitClass.ToString();
+            int cost = 50;
+
+            // ½Ã°£ »ö»ó
+            string timeColor = "#BBBBBB";
+
+            // ·Î±× Á¶¸³ 
+            string logMessage =
+                $"<color={timeColor}>[{currentTime}]</color> " +
+                $"·£´ý À¯´Ö »Ì±â (ÀÚ¿ø ¼Òºñ -{cost}): " +
+                $"{gradeName} µî±Þ {unitName} À¯´Ö È¹µæ!";
+
+            GameLogManager.Instance.AddLog(logMessage);
+
             if (UnitInfoManager.Instance != null)
                 UnitInfoManager.Instance.ShowInfo(spawnedUnit);
         }
