@@ -51,7 +51,9 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseUp()
     {
-        Tile targetTile = FindClosestPlaceableTile();
+        Tile targetTile = FindClosestTile();
+
+        //Tile targetTile = FindClosestPlaceableTile();
 
         if (targetTile == null) // 드롭했는데 타일이 없을시
         {
@@ -110,36 +112,54 @@ public class DragAndDrop : MonoBehaviour
 
     private void SetTile(Tile tile)
     {
-        if (tile == null || !tile.IsPlaceable)
-            return; // 차단/점유면 거절
+        //if (tile == null || !tile.IsPlaceable)
+        //    return; // 차단/점유면 거절
 
         currentTile = tile;
         tile.SetCurrentUnit(gameObject);
     }
 
-    private Tile FindClosestPlaceableTile(Vector3 pos)
+    private Tile FindClosestTile() // 가장 가까운 Tile을 찾아주는 함수
     {
-        Tile closest = null;
+        Tile closestTile = null; // 가장 가까운 타일을 저장할 변수
         float minDist = float.MaxValue;
 
-        foreach (Tile tile in FindObjectsOfType<Tile>())
+        foreach (var tile in FindObjectsOfType<Tile>())
         {
-            if (!tile.IsPlaceable) continue; // 차단/점유 타일 제외
-
-            float dist = Vector3.SqrMagnitude(tile.transform.position - pos);
-            if (dist < minDist)
+            float dist = Vector2.Distance(tile.transform.position, transform.position);
+            if (dist < 0.5f && dist < minDist)
             {
                 minDist = dist;
-                closest = tile;
+                closestTile = tile;
             }
         }
-        return closest;
+
+        return closestTile;
     }
-    private Tile FindClosestPlaceableTile()
-    {
-        // 드래그 중인 오브젝트의 현재 위치 기준
-        return FindClosestPlaceableTile(transform.position);
-    }
+
+    //private Tile FindClosestPlaceableTile(Vector3 pos)
+    //{
+    //    Tile closest = null;
+    //    float minDist = float.MaxValue;
+
+    //    foreach (Tile tile in FindObjectsOfType<Tile>())
+    //    {
+    //        if (!tile.IsPlaceable) continue; // 차단/점유 타일 제외
+
+    //        float dist = Vector3.SqrMagnitude(tile.transform.position - pos);
+    //        if (dist < minDist)
+    //        {
+    //            minDist = dist;
+    //            closest = tile;
+    //        }
+    //    }
+    //    return closest;
+    //}
+    //private Tile FindClosestPlaceableTile()
+    //{
+    //    // 드래그 중인 오브젝트의 현재 위치 기준
+    //    return FindClosestPlaceableTile(transform.position);
+    //}
 
     private Vector3 GetMouseWorldPos()
     {
