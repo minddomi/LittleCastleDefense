@@ -24,8 +24,8 @@ public class TutorialUnitSpawner : MonoBehaviour
         SpawnAt("Buffer1", new Vector2Int(7, 7));
 
         // 조커도 같이 시작하려면 주석 해제
-        //SpawnAt("Joker1", new Vector2Int(3, 3));
-        //SpawnAt("Joker2", new Vector2Int(5, 3));
+        SpawnAt("Joker1", new Vector2Int(3, 3));
+        SpawnAt("Joker2", new Vector2Int(5, 3));
     }
 
     public void SpawnJoker2()
@@ -71,10 +71,19 @@ public class TutorialUnitSpawner : MonoBehaviour
             return null;
         }
 
-        if (!targetTile.IsPlaceable)
+        // 막힌 타일이면 생성 금지
+        if (targetTile.isBlocked)
         {
-            Debug.LogWarning($"[Tutorial Spawn Fail] 배치 불가 타일: ({gridPos.x},{gridPos.y})");
+            Debug.LogWarning($"[Tutorial Spawn Fail] 막힌 타일: ({gridPos.x},{gridPos.y})");
             return null;
+        }
+
+        // 기존 유닛이 있으면 제거
+        if (targetTile.currentUnit != null)
+        {
+            GameObject oldUnit = targetTile.currentUnit;
+            targetTile.SetCurrentUnit(null);
+            Destroy(oldUnit);
         }
 
         GameObject prefab = Resources.Load<GameObject>(unitdata.prefabPath);
@@ -97,6 +106,60 @@ public class TutorialUnitSpawner : MonoBehaviour
 
         return status;
     }
+
+    //public UnitStatus SpawnAt(string unitID, Vector2Int gridPos)
+    //{
+    //    if (string.IsNullOrEmpty(unitID))
+    //    {
+    //        Debug.LogWarning("[Tutorial Spawn Fail] unitID 비어있음");
+    //        return null;
+    //    }
+
+    //    if (UnitDataLoader.Instance == null)
+    //    {
+    //        Debug.LogError("[Tutorial Spawn Fail] UnitDataLoader.Instance null");
+    //        return null;
+    //    }
+
+    //    if (!UnitDataLoader.Instance.unitDataMap.TryGetValue(unitID, out UnitData unitdata))
+    //    {
+    //        Debug.LogWarning($"[Tutorial Spawn Fail] 유닛 데이터 없음: {unitID}");
+    //        return null;
+    //    }
+
+    //    Tile targetTile = FindTile(gridPos);
+    //    if (targetTile == null)
+    //    {
+    //        Debug.LogWarning($"[Tutorial Spawn Fail] 타일 없음: ({gridPos.x},{gridPos.y})");
+    //        return null;
+    //    }
+
+    //    if (!targetTile.IsPlaceable)
+    //    {
+    //        Debug.LogWarning($"[Tutorial Spawn Fail] 배치 불가 타일: ({gridPos.x},{gridPos.y})");
+    //        return null;
+    //    }
+
+    //    GameObject prefab = Resources.Load<GameObject>(unitdata.prefabPath);
+    //    if (prefab == null)
+    //    {
+    //        Debug.LogError($"[Tutorial Spawn Fail] 프리팹 로딩 실패: {unitdata.prefabPath}");
+    //        return null;
+    //    }
+
+    //    Vector3 spawnPos = new Vector3(gridPos.x, gridPos.y, -1f);
+    //    GameObject unit = Instantiate(prefab, spawnPos, Quaternion.identity);
+
+    //    UnitStatus status = unit.GetComponent<UnitStatus>();
+    //    if (status != null)
+    //        status.Initialize(unitdata, gridPos);
+    //    else
+    //        Debug.LogWarning($"[Tutorial Spawn Warn] UnitStatus 없음: {unitID}");
+
+    //    targetTile.SetCurrentUnit(unit);
+
+    //    return status;
+    //}
 
     private Tile FindTile(Vector2Int gridPos)
     {

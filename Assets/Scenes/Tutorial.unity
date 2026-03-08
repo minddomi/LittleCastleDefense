@@ -1268,6 +1268,142 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71097115}
   m_CullTransparentMesh: 1
+--- !u!1 &72190763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 72190764}
+  - component: {fileID: 72190766}
+  - component: {fileID: 72190765}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &72190764
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72190763}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 87657678}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 140}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &72190765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72190763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "[\uB9C8\uBB34\uB9AC]\r\n\uC774\uC0C1\uC73C\uB85C \uAC8C\uC784 \uC9C4\uD589
+    \uBC29\uC2DD \uD29C\uD1A0\uB9AC\uC5BC\uC744 \uB9C8\uCE58\uBA70\r\n\uC774 \uC138\uC0C1\uC744
+    \uAD6C\uC6D0\uD574\uC8FC\uC2DC\uAE38 \uBC14\uB78D\uB2C8\uB2E4\r\n"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
+  m_sharedMaterial: {fileID: 6884753476532065116, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 23
+  m_fontSizeBase: 23
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &72190766
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72190763}
+  m_CullTransparentMesh: 1
 --- !u!1 &77217311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,6 +1540,128 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77217311}
   m_CullTransparentMesh: 1
+--- !u!1 &87657677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 87657678}
+  - component: {fileID: 87657681}
+  - component: {fileID: 87657680}
+  - component: {fileID: 87657679}
+  - component: {fileID: 87657682}
+  m_Layer: 5
+  m_Name: end
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &87657678
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87657677}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 72190764}
+  m_Father: {fileID: 1882768667}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -1}
+  m_SizeDelta: {x: 100, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &87657679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87657677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf7a8533a8071614099a222434642bf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepIndex: 38
+  clickToNext: 1
+  isEventStep: 0
+  condition: {fileID: 0}
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 87657682}
+        m_TargetAssemblyTypeName: TutorialSceneLoader, Assembly-CSharp
+        m_MethodName: GoToMainScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  lockOtherUIAndWorld: 1
+--- !u!114 &87657680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87657677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &87657681
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87657677}
+  m_CullTransparentMesh: 1
+--- !u!114 &87657682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87657677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66172cb5741692e45b907f215ea263e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &116300687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,6 +1855,7 @@ GameObject:
   - component: {fileID: 122632811}
   - component: {fileID: 122632815}
   - component: {fileID: 122632814}
+  - component: {fileID: 122632816}
   m_Layer: 5
   m_Name: "9-6(\uCEEC\uB7EC)"
   m_TagString: Untagged
@@ -1655,6 +1914,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 122632816}
+        m_TargetAssemblyTypeName: ActivateJokersFromHierarchy, Assembly-CSharp
+        m_MethodName: ActivateJoker2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   lockOtherUIAndWorld: 1
 --- !u!114 &122632812
 MonoBehaviour:
@@ -1701,7 +1972,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122632809}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3130c443c8d29534aae12e13d1166293, type: 3}
   m_Name: 
@@ -1720,6 +1991,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPanel: {fileID: 1381949428}
+--- !u!114 &122632816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122632809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1080fc6cdb2e42f43b82c6e2d8f82c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &128925696
 GameObject:
   m_ObjectHideFlags: 0
@@ -3348,10 +3631,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\uC720\uB2DB \uC124\uBA85]\r\n\uACF5\uC131\uBCD1\uC740 \uC18C\uD615 \uC801
-    \uC720\uB2DB\uC5D0\uAC8C 25%\r\n\uC911\uD615 \uC801 \uC720\uB2DB\uC5D0\uAC8C
-    50%\r\n\uB300\uD615 \uC801 \uC720\uB2DB\uC5D0\uAC8C 100%\uC758 \uD53C\uD574\uB97C
-    \uC785\uD78C\uB2E4\r\n"
+  m_text: "[\uC720\uB2DB]\r\n\uACF5\uC131\uBCD1\uC740 \uC18C\uD615 \uC801 \uC720\uB2DB\uC5D0\uAC8C
+    25%\r\n\uC911\uD615 \uC801 \uC720\uB2DB\uC5D0\uAC8C 50%\r\n\uB300\uD615 \uC801
+    \uC720\uB2DB\uC5D0\uAC8C 100%\uC758 \uD53C\uD574\uB97C \uC785\uD78C\uB2E4\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
   m_sharedMaterial: {fileID: 6884753476532065116, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
@@ -3962,9 +4244,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\uC790\uC6D0 \uC124\uBA85]\r\n\uC790\uC6D0\uC740 <\uB79C\uB364 \uC720\uB2DB
-    \uBF51\uAE30>,\r\n<\uC720\uB2DB \uAC15\uD654> \uB4F1 \uB2E4\uC591\uD55C \uAE30\uB2A5\uC5D0
-    \r\n\uC0AC\uC6A9\uB41C\uB2E4\r\n"
+  m_text: "[\uC790\uC6D0]\r\n\uC790\uC6D0\uC740 <\uB79C\uB364 \uC720\uB2DB \uBF51\uAE30>,\r\n<\uC720\uB2DB
+    \uAC15\uD654> \uB4F1 \uB2E4\uC591\uD55C \uAE30\uB2A5\uC5D0 \r\n\uC0AC\uC6A9\uB41C\uB2E4\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
   m_sharedMaterial: {fileID: 6884753476532065116, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
@@ -5013,9 +5294,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\uC720\uB2DB \uC124\uBA85]\r\n\uCD08\uAE09\uC5D0\uC11C \uCD08\uC6D4\uB85C
-    \uAC08\uC218\uB85D \r\n\uACF5\uACA9\uB825\uACFC \uACF5\uACA9\uC0AC\uAC70\uB9AC\uC640
-    \uBC94\uC704\uAC00 \uC99D\uAC00\uD558\uBA70 \r\n"
+  m_text: "[\uC720\uB2DB]\r\n\uCD08\uAE09\uC5D0\uC11C \uCD08\uC6D4\uB85C \uAC08\uC218\uB85D
+    \r\n\uACF5\uACA9\uB825\uACFC \uACF5\uACA9\uC0AC\uAC70\uB9AC\uC640 \uBC94\uC704\uAC00
+    \uC99D\uAC00\uD558\uBA70 \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
   m_sharedMaterial: {fileID: 6884753476532065116, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
@@ -6441,9 +6722,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\uC720\uB2DB \uC124\uBA85]\r\n\uC885\uC871 \uC678\uC5D0\uB3C4 \uB4F1\uAE09\uC774
-    \uC874\uC7AC\uD558\uBA70\r\n\uCD08\uAE09, \uC911\uAE09, \uACE0\uAE09, \uC11C\uC0AC,
-    \uCD5C\uACE0, \uCD08\uC6D4\uB85C \r\n\uCD1D 6\uAC1C\uAC00 \uC874\uC7AC\uD55C\uB2E4\r\n"
+  m_text: "[\uC720\uB2DB]\r\n\uC885\uC871 \uC678\uC5D0\uB3C4 \uB4F1\uAE09\uC774 \uC874\uC7AC\uD558\uBA70\r\n\uCD08\uAE09,
+    \uC911\uAE09, \uACE0\uAE09, \uC11C\uC0AC, \uCD5C\uACE0, \uCD08\uC6D4\uB85C \r\n\uCD1D
+    6\uAC1C\uAC00 \uC874\uC7AC\uD55C\uB2E4\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
   m_sharedMaterial: {fileID: 6884753476532065116, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
@@ -7145,9 +7426,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\uC720\uB2DB \uC124\uBA85]\r\n\uB9C8\uBC95\uC0AC\uB294 \uC801 \uC720\uB2DB
-    \uC720\uD615\uC5D0 \uAD00\uACC4 \uC5C6\uC774 \n\uBAA8\uB4E0 \uC801\uC5D0\uAC8C
-    75%\uC758 \uD53C\uD574\uB97C \uC785\uD78C\uB2E4\r\n"
+  m_text: "[\uC720\uB2DB]\r\n\uB9C8\uBC95\uC0AC\uB294 \uC801 \uC720\uB2DB \uC720\uD615\uC5D0
+    \uAD00\uACC4 \uC5C6\uC774 \n\uBAA8\uB4E0 \uC801\uC5D0\uAC8C 75%\uC758 \uD53C\uD574\uB97C
+    \uC785\uD78C\uB2E4\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
   m_sharedMaterial: {fileID: 6884753476532065116, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
@@ -7619,7 +7900,6 @@ GameObject:
   - component: {fileID: 647010061}
   - component: {fileID: 647010060}
   - component: {fileID: 647010059}
-  - component: {fileID: 647010062}
   - component: {fileID: 647010063}
   m_Layer: 5
   m_Name: "9-3(\uD751\uBC31)"
@@ -7706,19 +7986,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647010057}
   m_CullTransparentMesh: 1
---- !u!114 &647010062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 647010057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3130c443c8d29534aae12e13d1166293, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnOnStart: 1
 --- !u!114 &647010063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8653,9 +8920,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\uB79C\uB364 \uC720\uB2DB \uBF51\uAE30 \uC124\uBA85]\r\n\uAE30\uBCF8
-    \uC790\uC6D0 100\uC744 \uC774\uC6A9\uD558\uC5EC \r\n\uC720\uB2DB 2\uAC1C\uB97C
-    \uBF51\uC544\uB77C\r\n"
+  m_text: "[\uB79C\uB364 \uC720\uB2DB \uBF51\uAE30]\r\n\uAE30\uBCF8 \uC790\uC6D0
+    100\uC744 \uC774\uC6A9\uD558\uC5EC \r\n\uC720\uB2DB 2\uAC1C\uB97C \uBF51\uC544\uB77C\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
   m_sharedMaterial: {fileID: 6884753476532065116, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
@@ -11112,8 +11378,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\uB79C\uB364 \uC720\uB2DB \uBF51\uAE30 \uC124\uBA85]\r\n\uB79C\uB364
-    \uC720\uB2DB \uBF51\uAE30\uB294 \uC790\uC6D0 50\uC744 \uC18C\uBAA8\uD558\uC5EC\r\n\uC720\uB2DB\uC744
+  m_text: "[\uB79C\uB364 \uC720\uB2DB \uBF51\uAE30]\r\n\uB79C\uB364 \uC720\uB2DB
+    \uBF51\uAE30\uB294 \uC790\uC6D0 50\uC744 \uC18C\uBAA8\uD558\uC5EC\r\n\uC720\uB2DB\uC744
     \uD558\uB098 \uC18C\uD658\uD560 \uC218 \uC788\uB2E4\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
@@ -11457,7 +11723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\uC720\uB2DB \uC124\uBA85]\r\n\uC720\uB2DB\uC740 \uAD81\uC218, \uACF5\uC131\uBCD1,
+  m_text: "[\uC720\uB2DB]\r\n\uC720\uB2DB\uC740 \uAD81\uC218, \uACF5\uC131\uBCD1,
     \uB9C8\uBC95\uC0AC, \uBC84\uD37C\uB85C\r\n\uCD1D 4\uAC00\uC9C0 \uC885\uC871\uC774
     \uC874\uC7AC\uD55C\uB2E4\r\n"
   m_isRightToLeft: 0
@@ -13343,9 +13609,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\uC720\uB2DB \uAC15\uD654 \uC124\uBA85]\r\n\uAC15\uD654\uB41C \uC885\uC871\uC5D0
-    \uD574\uB2F9\uD558\uB294 \r\n\uBAA8\uB4E0 \uC720\uB2DB\uC758 \uACF5\uACA9\uB825\uC774
-    \r\n\uC601\uAD6C\uC801\uC73C\uB85C \uAC15\uD654\uB41C\uB2E4\r\n"
+  m_text: "[\uC720\uB2DB \uAC15\uD654]\r\n\uAC15\uD654\uB41C \uC885\uC871\uC5D0 \uD574\uB2F9\uD558\uB294
+    \r\n\uBAA8\uB4E0 \uC720\uB2DB\uC758 \uACF5\uACA9\uB825\uC774 \r\n\uC601\uAD6C\uC801\uC73C\uB85C
+    \uAC15\uD654\uB41C\uB2E4\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
   m_sharedMaterial: {fileID: 6884753476532065116, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
@@ -16554,9 +16820,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\uC720\uB2DB \uC124\uBA85]\r\n\uCD5C\uACE0, \uCD08\uC6D4 \uB4F1\uAE09\uC758
-    \uACBD\uC6B0\uC5D0\uB294\r\n\uD2B9\uC218 \uB2A5\uB825\uAE4C\uC9C0 \uBCF4\uC720\uD558\uACE0
-    \uC788\uB2E4\r\n"
+  m_text: "[\uC720\uB2DB]\r\n\uCD5C\uACE0, \uCD08\uC6D4 \uB4F1\uAE09\uC758 \uACBD\uC6B0\uC5D0\uB294\r\n\uD2B9\uC218
+    \uB2A5\uB825\uAE4C\uC9C0 \uBCF4\uC720\uD558\uACE0 \uC788\uB2E4\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
   m_sharedMaterial: {fileID: 6884753476532065116, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
@@ -16690,7 +16955,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\uC720\uB2DB \uAC15\uD654 \uC124\uBA85]\r\n\uC790\uC6D0\uC744 \uC18C\uBE44\uD558\uC5EC
+  m_text: "[\uC720\uB2DB \uAC15\uD654]\r\n\uC790\uC6D0\uC744 \uC18C\uBE44\uD558\uC5EC
     \r\n\uAC01 \uC885\uC871\uC744 \uAC15\uD654\uD560 \uC218 \uC788\uB2E4 \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
@@ -17413,7 +17678,19 @@ MonoBehaviour:
   condition: {fileID: 0}
   onEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ActivateJokersFromHierarchy, Assembly-CSharp
+        m_MethodName: ActivateJokers
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   lockOtherUIAndWorld: 1
 --- !u!114 &1448787711
 MonoBehaviour:
@@ -19211,7 +19488,31 @@ MonoBehaviour:
   condition: {fileID: 0}
   onEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6843110344384958407, guid: 7acaf536162b99f4cbe5304add9ad503, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6843110344384958407, guid: 170128d4bf999834b935dcc0f610434f, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   lockOtherUIAndWorld: 1
 --- !u!114 &1594959518
 MonoBehaviour:
@@ -19616,6 +19917,7 @@ GameObject:
   - component: {fileID: 1629246108}
   - component: {fileID: 1629246107}
   - component: {fileID: 1629246110}
+  - component: {fileID: 1629246111}
   m_Layer: 5
   m_Name: 8-3
   m_TagString: Untagged
@@ -19720,12 +20022,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629246105}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3130c443c8d29534aae12e13d1166293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnOnStart: 1
+--- !u!114 &1629246111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629246105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1080fc6cdb2e42f43b82c6e2d8f82c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1640950851
 GameObject:
   m_ObjectHideFlags: 0
@@ -21979,6 +22293,7 @@ RectTransform:
   - {fileID: 737105915}
   - {fileID: 613245112}
   - {fileID: 367355318}
+  - {fileID: 87657678}
   m_Father: {fileID: 173520083}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -22530,6 +22845,7 @@ GameObject:
   - component: {fileID: 1987643599}
   - component: {fileID: 1987643598}
   - component: {fileID: 1987643597}
+  - component: {fileID: 1987643600}
   m_Layer: 5
   m_Name: 9-2
   m_TagString: Untagged
@@ -22575,7 +22891,19 @@ MonoBehaviour:
   condition: {fileID: 0}
   onEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1987643600}
+        m_TargetAssemblyTypeName: ActivateJokersFromHierarchy, Assembly-CSharp
+        m_MethodName: ActivateJoker1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   lockOtherUIAndWorld: 1
 --- !u!114 &1987643598
 MonoBehaviour:
@@ -22615,6 +22943,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987643595}
   m_CullTransparentMesh: 1
+--- !u!114 &1987643600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987643595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1080fc6cdb2e42f43b82c6e2d8f82c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1990298709
 GameObject:
   m_ObjectHideFlags: 0
@@ -23602,9 +23942,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\uC720\uB2DB \uC124\uBA85]\r\n\uBC84\uD37C\uB294 \uC790\uC2E0\uC758 \uC8FC\uBCC0
-    \uC544\uAD70 \uC720\uB2DB\uC5D0\uAC8C \r\n\uACF5\uACA9\uB825 \uC99D\uAC00\uC640
-    \uAC19\uC740 \uBC84\uD504\uB97C \uC900\uB2E4\r\n"
+  m_text: "[\uC720\uB2DB]\r\n\uBC84\uD37C\uB294 \uC790\uC2E0\uC758 \uC8FC\uBCC0 \uC544\uAD70
+    \uC720\uB2DB\uC5D0\uAC8C \r\n\uACF5\uACA9\uB825 \uC99D\uAC00\uC640 \uAC19\uC740
+    \uBC84\uD504\uB97C \uC900\uB2E4\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
   m_sharedMaterial: {fileID: 6884753476532065116, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
@@ -24199,10 +24539,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\uC720\uB2DB \uC124\uBA85]\r\n\uAD81\uC218\uB294 \uC18C\uD615 \uC801
-    \uC720\uB2DB\uC5D0\uAC8C 100%\r\n\uC911\uD615 \uC801 \uC720\uB2DB\uC5D0\uAC8C
-    50%\r\n\uB300\uD615 \uC801 \uC720\uB2DB\uC5D0\uAC8C 25%\uC758 \uD53C\uD574\uB97C
-    \uC785\uD78C\uB2E4\r\n"
+  m_text: "[\uC720\uB2DB]\r\n\uAD81\uC218\uB294 \uC18C\uD615 \uC801 \uC720\uB2DB\uC5D0\uAC8C
+    100%\r\n\uC911\uD615 \uC801 \uC720\uB2DB\uC5D0\uAC8C 50%\r\n\uB300\uD615 \uC801
+    \uC720\uB2DB\uC5D0\uAC8C 25%\uC758 \uD53C\uD574\uB97C \uC785\uD78C\uB2E4\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}
   m_sharedMaterial: {fileID: 6884753476532065116, guid: 77eb1b349d7b3024bb7e2617724288b7, type: 2}

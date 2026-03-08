@@ -53,8 +53,6 @@ public class DragAndDrop : MonoBehaviour
     {
         Tile targetTile = FindClosestTile();
 
-        //Tile targetTile = FindClosestPlaceableTile();
-
         if (targetTile == null) // 드롭했는데 타일이 없을시
         {
             GoHome();
@@ -100,9 +98,6 @@ public class DragAndDrop : MonoBehaviour
         Tile originalTile = currentTile;
         Tile targetTile = other.currentTile;
 
-        if (targetTile != null && !targetTile.IsPlaceable) return;
-        if (originalTile != null && !originalTile.IsPlaceable) return;
-
         transform.position = targetTile.transform.position + TileDepth;
         other.transform.position = originalTile.transform.position + TileDepth;
 
@@ -110,11 +105,8 @@ public class DragAndDrop : MonoBehaviour
         other.SetTile(originalTile);
     }
 
-    private void SetTile(Tile tile)
+    private void SetTile(Tile tile) //유닛과 타일간 점유 관계를 연결해주는 함수
     {
-        //if (tile == null || !tile.IsPlaceable)
-        //    return; // 차단/점유면 거절
-
         currentTile = tile;
         tile.SetCurrentUnit(gameObject);
     }
@@ -137,35 +129,10 @@ public class DragAndDrop : MonoBehaviour
         return closestTile;
     }
 
-    //private Tile FindClosestPlaceableTile(Vector3 pos)
-    //{
-    //    Tile closest = null;
-    //    float minDist = float.MaxValue;
-
-    //    foreach (Tile tile in FindObjectsOfType<Tile>())
-    //    {
-    //        if (!tile.IsPlaceable) continue; // 차단/점유 타일 제외
-
-    //        float dist = Vector3.SqrMagnitude(tile.transform.position - pos);
-    //        if (dist < minDist)
-    //        {
-    //            minDist = dist;
-    //            closest = tile;
-    //        }
-    //    }
-    //    return closest;
-    //}
-    //private Tile FindClosestPlaceableTile()
-    //{
-    //    // 드래그 중인 오브젝트의 현재 위치 기준
-    //    return FindClosestPlaceableTile(transform.position);
-    //}
-
     private Vector3 GetMouseWorldPos()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
         return mousePos;
     }
-
 }

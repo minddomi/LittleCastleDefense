@@ -53,7 +53,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1671449466206724212
 Transform:
   m_ObjectHideFlags: 0
@@ -187,8 +187,8 @@ MonoBehaviour:
     gradeName: 
     attackPower: 0
     attackRange: 0
-    attackCooldown: 0
-    critRate: 0
+    attackInterval: 0
+    criticalChance: 0
     sellGold: 0
     isBuffer: 0
     buffType: 0
@@ -199,6 +199,10 @@ MonoBehaviour:
     posY: 0
     canMerge: 0
     UIPath: 
+    criticalMultiplier: 0
+    upgradeLevel: 0
+    upgradePower: 0
+    TotalAttackPower: 0
   unitID: 
   unitName: 
   unitClass: 0
@@ -206,8 +210,8 @@ MonoBehaviour:
   gradeName: 
   attackPower: 15
   attackRange: 0
-  attackCooldown: 0
-  critRate: 0
+  attackInterval: 0
+  criticalChance: 0
   sellGold: 0
   isBuffer: 0
   buffType: 0
@@ -218,6 +222,10 @@ MonoBehaviour:
   posY: 0
   canMerge: 0
   UIPath: 
+  criticalMultiplier: 0
+  upgradeLevel: 0
+  upgradePower: 0
+  TotalAttackPower: 0
 --- !u!114 &1833249635392298820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +264,9 @@ MonoBehaviour:
   projectilePrefab: {fileID: 0}
   firePoint: {fileID: 0}
   aoeEffectPrefab: {fileID: 0}
+  ignoreTypeForDamage: 0
+  blockBufferBuffs: 0
+  targetRandom: 0
 --- !u!114 &-3828770387194867724
 MonoBehaviour:
   m_ObjectHideFlags: 0
