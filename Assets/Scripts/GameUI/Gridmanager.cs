@@ -8,6 +8,8 @@ public class GridManager : MonoBehaviour
     public int width = 9;
     public int height = 9;
 
+    //public GameObject overlayPrefab; // 이것만 추가
+
     void Start()
     {
         for (int x = 0; x < width; x++)
@@ -20,6 +22,8 @@ public class GridManager : MonoBehaviour
 
                 Tile tile = tileObj.GetComponent<Tile>();
                 tile.gridPosition = new Vector2Int(x, y); // 타일 좌표룰 설정함(유닛 배치에 활용함)
+
+                //Instantiate(overlayPrefab, tileObj.transform); //  
             }
         }
     }

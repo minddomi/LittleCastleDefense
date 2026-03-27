@@ -13,6 +13,9 @@ public class RoundEnemySpawner : MonoBehaviour
     public bool spawnRound1OnStart = true;
     public bool stopPreviousSpawnsOnNewRound = true;
 
+    [Header("소환된 적들을 정리할 컨테이너")]
+    public Transform enemiesContainer;
+
     private class SpawnPlan
     {
         public string enemyID;
@@ -87,7 +90,10 @@ public class RoundEnemySpawner : MonoBehaviour
         for (int i = 0; i < plan.count; i++)
         {
             Vector3 pos = new Vector3(plan.spawnPos.x, plan.spawnPos.y, -1f);
-            GameObject go = Instantiate(prefab, pos, Quaternion.identity);
+
+            Transform parent = enemiesContainer != null ? enemiesContainer : transform; //
+
+            GameObject go = Instantiate(prefab, pos, Quaternion.identity, parent);
 
             var enemy = go.GetComponent<EnemyUnit>();
             if (enemy != null)
